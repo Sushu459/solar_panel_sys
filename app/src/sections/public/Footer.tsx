@@ -176,6 +176,14 @@ export default function Footer() {
               })}
             </div>
 
+            {/* Admin Link */}
+            <Link
+              to="/admin/login"
+              className="flex items-center gap-1 text-gray-500 hover:text-[#c4ff00] text-sm transition-colors"
+            >
+              Admin
+              <ArrowUpRight className="w-3 h-3" />
+            </Link>
           </div>
         </div>
       </div>
