@@ -130,7 +130,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 bg-gradient-to-br from-amber-50 via-orange-50/50 to-white selection:bg-amber-200 font-sans"
+      className="relative min-h-[88vh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20 bg-gradient-to-br from-amber-50 via-orange-50/50 to-white selection:bg-amber-200 font-sans"
     >
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -178,40 +178,40 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-8 lg:mt-0">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 text-center mt-2 lg:mt-0">
         {/* Badge */}
         
 
         {/* Main Heading */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight drop-shadow-sm">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 sm:mb-4 leading-tight tracking-tight drop-shadow-sm">
           Your Future with{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 drop-shadow-none">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 drop-shadow-none block sm:inline mt-1 sm:mt-0">
             Solar Energy
           </span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg sm:text-xl font-medium text-slate-200 max-w-3xl mx-auto mb-10 leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg font-medium text-slate-200 max-w-xs sm:max-w-xl md:max-w-2xl mx-auto mb-5 sm:mb-7 leading-relaxed px-2 sm:px-0">
           Transform your energy consumption with our cutting-edge solar installations. 
           Save money, reduce your carbon footprint, and join India&apos;s green revolution.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <Link to="/projects">
+        <div className="flex flex-col items-center justify-center gap-2.5 sm:gap-3 mb-6 sm:mb-8 px-6 sm:px-0">
+          <Link to="/projects" className="w-full max-w-xs sm:max-w-none sm:w-auto">
             <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:from-orange-600 hover:to-amber-600 rounded-full px-8 py-6 text-lg font-bold group shadow-lg shadow-orange-500/25 border-0 transition-all hover:-translate-y-0.5"
+              size="default" 
+              className="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:from-orange-600 hover:to-amber-600 rounded-full px-6 sm:px-8 py-2.5 sm:py-5 text-sm sm:text-base font-bold group shadow-lg shadow-orange-500/25 border-0 transition-all hover:-translate-y-0.5"
             >
               Explore Projects
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 w-3 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
-          <Link to="/calculator">
+          <Link to="/calculator" className="w-full max-w-xs sm:max-w-none sm:w-auto">
             <Button 
-              size="lg" 
+              size="default" 
               variant="outline"
-              className="bg-white/80 backdrop-blur-sm border-slate-200 text-slate-700 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 rounded-full px-8 py-6 text-lg font-bold shadow-sm transition-all"
+              className="w-full sm:w-auto bg-white/80 backdrop-blur-sm border-slate-200 text-slate-700 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 rounded-full px-6 sm:px-8 py-2.5 sm:py-5 text-sm sm:text-base font-bold shadow-sm transition-all"
             >
               Calculate Savings
             </Button>
@@ -220,7 +220,7 @@ export default function Hero() {
 
         {/* Partners Strip */}
         {validPartners.length > 0 && (
-          <div className="mb-16 relative py-2 overflow-hidden"
+          <div className="mb-10 sm:mb-12 relative py-2 overflow-hidden"
             onMouseEnter={() => setIsPartnersPaused(true)}
             onMouseLeave={() => setIsPartnersPaused(false)}
             onTouchStart={() => setIsPartnersPaused(true)}
@@ -235,7 +235,7 @@ export default function Hero() {
                 {duplicatedPartners.map((partner, index) => (
                   <div
                     key={`${partner.id}-${index}`}
-                    className="h-14 w-14 sm:h-[68px] sm:w-[68px] rounded-full bg-white/80 backdrop-blur-md border border-amber-100 shadow-sm flex items-center justify-center p-2 overflow-hidden shrink-0"
+                    className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-white/80 backdrop-blur-md border border-amber-100 shadow-sm flex items-center justify-center p-2 overflow-hidden shrink-0"
                   >
                     <img
                       src={partner.image_url}
@@ -248,26 +248,26 @@ export default function Hero() {
                 ))}
               </div>
             </div>
-            <p className="mt-4 text-sm sm:text-base font-bold text-amber-950 uppercase tracking-wider text-center">
+            <p className="mt-3 text-xs sm:text-sm font-bold text-amber-950 uppercase tracking-wider text-center">
               Trusted Partners
             </p>
           </div>
         )}
 
         {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-2.5 sm:gap-4 max-w-md sm:max-w-3xl mx-auto px-3 sm:px-0">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <div 
                 key={index} 
-                className="text-center p-6 rounded-3xl bg-white/80 backdrop-blur-md border border-amber-100 shadow-xl shadow-orange-500/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/10 hover:border-orange-200 group"
+                className="w-[46%] min-w-[140px] max-w-[170px] sm:w-[31%] sm:min-w-[170px] sm:max-w-[220px] text-center p-3 sm:p-4 rounded-[1.5rem] sm:rounded-[2rem] bg-white/90 backdrop-blur-md border border-amber-100 shadow-xl shadow-orange-500/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/10 hover:border-orange-200 group"
               >
-                <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-orange-100 to-amber-100 flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
-                  <Icon className="w-7 h-7 text-orange-500" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-2xl bg-gradient-to-br from-orange-100 to-amber-100 flex items-center justify-center mb-2.5 shadow-sm group-hover:scale-110 transition-transform">
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-orange-500" />
                 </div>
-                <div className="text-3xl sm:text-4xl font-extrabold text-slate-800 mb-1">{stat.value}</div>
-                <div className="text-sm font-bold text-slate-500 uppercase tracking-wider">{stat.label}</div>
+                <div className="text-xl sm:text-2xl font-extrabold text-slate-800 mb-1">{stat.value}</div>
+                <div className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">{stat.label}</div>
               </div>
             );
           })}
@@ -275,7 +275,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-28 sm:h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
     </section>
   );
 }
