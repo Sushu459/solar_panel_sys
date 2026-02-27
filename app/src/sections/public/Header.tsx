@@ -52,11 +52,14 @@ export default function Header() {
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-md shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow">
               <Sun className="w-6 h-6 text-white" />
             </div>
-            <div className="hidden sm:block">
-              <span className="text-xl font-extrabold text-green-600 to-lime-500 group-hover:text-emerald-400 transition-colors tracking-tight drop-shadow-sm">
+            <div>
+              <span className="block sm:hidden text-sm font-extrabold text-green-600 tracking-tight drop-shadow-sm leading-tight max-w-[170px] truncate">
                 Ever Green Solar Systems
               </span>
-              <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider">India</span>
+              <span className="hidden sm:block text-xl font-extrabold text-green-600 to-lime-500 group-hover:text-emerald-400 transition-colors tracking-tight drop-shadow-sm">
+                Ever Green Solar Systems
+              </span>
+              <span className="hidden sm:block text-xs font-bold text-slate-400 uppercase tracking-wider">India</span>
             </div>
           </Link>
 
