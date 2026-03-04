@@ -130,7 +130,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-[88vh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20 bg-gradient-to-br from-amber-50 via-orange-50/50 to-white selection:bg-amber-200 font-sans"
+      className="relative min-h-[88vh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20 bg-gradient-to-br from-lime-50 via-emerald-50/50 to-white selection:bg-lime-200 font-sans"
     >
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -185,7 +185,7 @@ export default function Hero() {
         {/* Main Heading */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 sm:mb-4 leading-tight tracking-tight drop-shadow-sm">
           Your Future with{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 drop-shadow-none block sm:inline mt-1 sm:mt-0">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-500 drop-shadow-none block sm:inline mt-1 sm:mt-0">
             Solar Energy
           </span>
         </h1>
@@ -201,7 +201,7 @@ export default function Hero() {
           <Link to="/projects" className="w-full max-w-xs sm:max-w-none sm:w-auto">
             <Button 
               size="default" 
-              className="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:from-orange-600 hover:to-amber-600 rounded-full px-6 sm:px-8 py-2.5 sm:py-5 text-sm sm:text-base font-bold group shadow-lg shadow-orange-500/25 border-0 transition-all hover:-translate-y-0.5"
+              className="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-lime-500 text-white hover:from-emerald-600 hover:to-lime-600 rounded-full px-6 sm:px-8 py-2.5 sm:py-5 text-sm sm:text-base font-bold group shadow-lg shadow-emerald-500/25 border-0 transition-all hover:-translate-y-0.5"
             >
               Explore Projects
               <ArrowRight className="ml-2 w-3 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -211,7 +211,7 @@ export default function Hero() {
             <Button 
               size="default" 
               variant="outline"
-              className="w-full sm:w-auto bg-white/80 backdrop-blur-sm border-slate-200 text-slate-700 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 rounded-full px-6 sm:px-8 py-2.5 sm:py-5 text-sm sm:text-base font-bold shadow-sm transition-all"
+              className="w-full sm:w-auto bg-white/80 backdrop-blur-sm border-slate-200 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200 rounded-full px-6 sm:px-8 py-2.5 sm:py-5 text-sm sm:text-base font-bold shadow-sm transition-all"
             >
               Calculate Savings
             </Button>
@@ -235,7 +235,7 @@ export default function Hero() {
                 {duplicatedPartners.map((partner, index) => (
                   <div
                     key={`${partner.id}-${index}`}
-                    className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-white/80 backdrop-blur-md border border-amber-100 shadow-sm flex items-center justify-center p-2 overflow-hidden shrink-0"
+                    className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-white/80 backdrop-blur-md border border-lime-100 shadow-sm flex items-center justify-center p-2 overflow-hidden shrink-0"
                   >
                     <img
                       src={partner.image_url}
@@ -248,7 +248,7 @@ export default function Hero() {
                 ))}
               </div>
             </div>
-            <p className="mt-3 text-xs sm:text-sm font-bold text-amber-950 uppercase tracking-wider text-center">
+            <p className="mt-3 text-xs sm:text-sm font-bold text-lime-950 uppercase tracking-wider text-center">
               Trusted Partners
             </p>
           </div>
@@ -261,10 +261,10 @@ export default function Hero() {
             return (
               <div 
                 key={index} 
-                className="w-[46%] min-w-[140px] max-w-[170px] sm:w-[31%] sm:min-w-[170px] sm:max-w-[220px] text-center p-3 sm:p-4 rounded-[1.5rem] sm:rounded-[2rem] bg-white/90 backdrop-blur-md border border-amber-100 shadow-xl shadow-orange-500/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/10 hover:border-orange-200 group"
+                className="w-[46%] min-w-[140px] max-w-[170px] sm:w-[31%] sm:min-w-[170px] sm:max-w-[220px] text-center p-3 sm:p-4 rounded-[1.5rem] sm:rounded-[2rem] bg-white/90 backdrop-blur-md border border-lime-100 shadow-xl shadow-emerald-500/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-500/10 hover:border-emerald-200 group"
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-2xl bg-gradient-to-br from-orange-100 to-amber-100 flex items-center justify-center mb-2.5 shadow-sm group-hover:scale-110 transition-transform">
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-orange-500" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-2xl bg-gradient-to-br from-emerald-100 to-lime-100 flex items-center justify-center mb-2.5 shadow-sm group-hover:scale-110 transition-transform">
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-500" />
                 </div>
                 <div className="text-xl sm:text-2xl font-extrabold text-slate-800 mb-1">{stat.value}</div>
                 <div className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">{stat.label}</div>

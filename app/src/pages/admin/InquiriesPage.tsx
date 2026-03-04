@@ -25,7 +25,7 @@ import type { Inquiry } from '../../types';
 
 const statusColors = {
   new: 'bg-blue-50 text-blue-700 border-blue-200',
-  in_progress: 'bg-amber-50 text-amber-700 border-amber-200',
+  in_progress: 'bg-lime-50 text-lime-700 border-lime-200',
   resolved: 'bg-emerald-50 text-emerald-700 border-emerald-200',
   archived: 'bg-slate-50 text-slate-700 border-slate-200',
 };
@@ -109,19 +109,19 @@ export default function AdminInquiriesPage() {
   const inProgressCount = inquiries.filter((i) => i.status === 'in_progress').length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50/50 to-white text-slate-800 font-sans selection:bg-amber-200">
+    <div className="min-h-screen bg-gradient-to-br from-lime-50 via-emerald-50/50 to-white text-slate-800 font-sans selection:bg-lime-200">
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 min-h-screen bg-white/80 backdrop-blur-xl border-r border-amber-100/50 fixed left-0 top-0 z-50 hidden lg:flex flex-col shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
+        <aside className="w-64 min-h-screen bg-white/80 backdrop-blur-xl border-r border-lime-100/50 fixed left-0 top-0 z-50 hidden lg:flex flex-col shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
           {/* Logo */}
-          <div className="p-6 border-b border-amber-100/50">
+          <div className="p-6 border-b border-lime-100/50">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-lime-400 to-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-shadow">
                 <Sun className="w-6 h-6 text-white" />
               </div>
               <div>
                 <span className="font-bold text-slate-800 text-lg tracking-tight">Solar Systems</span>
-                <span className="block text-xs font-bold text-orange-500 uppercase tracking-wider">Admin Panel</span>
+                <span className="block text-xs font-bold text-emerald-500 uppercase tracking-wider">Admin Panel</span>
               </div>
             </Link>
           </div>
@@ -137,11 +137,11 @@ export default function AdminInquiriesPage() {
                   to={link.href}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-semibold ${
                     isActive
-                      ? 'bg-gradient-to-r from-amber-100 to-orange-50 text-orange-700 shadow-sm'
-                      : 'text-slate-500 hover:text-orange-600 hover:bg-orange-50/50'
+                      ? 'bg-gradient-to-r from-lime-100 to-emerald-50 text-emerald-700 shadow-sm'
+                      : 'text-slate-500 hover:text-emerald-600 hover:bg-emerald-50/50'
                   }`}
                 >
-                  <Icon className={`w-5 h-5 ${isActive ? 'text-orange-600' : 'text-slate-400'}`} />
+                  <Icon className={`w-5 h-5 ${isActive ? 'text-emerald-600' : 'text-slate-400'}`} />
                   {link.label}
                 </Link>
               );
@@ -149,9 +149,9 @@ export default function AdminInquiriesPage() {
           </nav>
 
           {/* User & Logout */}
-          <div className="p-4 border-t border-amber-100/50 bg-white/50">
+          <div className="p-4 border-t border-lime-100/50 bg-white/50">
             <div className="flex items-center gap-3 mb-4 px-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-100 to-amber-100 border border-orange-200 flex items-center justify-center text-orange-700 font-bold uppercase">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-100 to-lime-100 border border-emerald-200 flex items-center justify-center text-emerald-700 font-bold uppercase">
                 {user?.email?.charAt(0) || 'A'}
               </div>
               <div className="flex-1 min-w-0">
@@ -170,7 +170,7 @@ export default function AdminInquiriesPage() {
         </aside>
 
         {/* Mobile Sidebar */}
-        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-amber-100 z-50 pb-safe shadow-[0_-4px_24px_-12px_rgba(0,0,0,0.1)]">
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-lime-100 z-50 pb-safe shadow-[0_-4px_24px_-12px_rgba(0,0,0,0.1)]">
           <nav className="flex justify-around p-2">
             {sidebarLinks.map((link) => {
               const Icon = link.icon;
@@ -180,7 +180,7 @@ export default function AdminInquiriesPage() {
                   key={link.href}
                   to={link.href}
                   className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-colors ${
-                    isActive ? 'text-orange-600' : 'text-slate-400 hover:text-orange-500'
+                    isActive ? 'text-emerald-600' : 'text-slate-400 hover:text-emerald-500'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -193,7 +193,7 @@ export default function AdminInquiriesPage() {
 
         {/* Main Content */}
         <main className="flex-1 lg:ml-64 pb-20 lg:pb-0">
-          <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-xl border-b border-amber-100/50 px-6 py-4 shadow-sm">
+          <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-xl border-b border-lime-100/50 px-6 py-4 shadow-sm">
             <div className="flex items-center justify-between max-w-6xl mx-auto">
               <h1 className="text-xl font-extrabold text-slate-800">Inquiries</h1>
               <div className="flex items-center gap-3">
@@ -203,7 +203,7 @@ export default function AdminInquiriesPage() {
                   </span>
                 )}
                 {inProgressCount > 0 && (
-                  <span className="px-3 py-1.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold shadow-sm">
+                  <span className="px-3 py-1.5 rounded-full bg-lime-50 text-lime-700 border border-lime-200 text-xs font-bold shadow-sm">
                     {inProgressCount} In Progress
                   </span>
                 )}
@@ -221,18 +221,18 @@ export default function AdminInquiriesPage() {
                   placeholder="Search inquiries by name, email, or message..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 py-6 bg-white border-amber-200 text-slate-800 placeholder:text-slate-400 focus:border-orange-400 focus:ring-orange-400/20 shadow-sm rounded-2xl font-medium w-full"
+                  className="pl-12 py-6 bg-white border-lime-200 text-slate-800 placeholder:text-slate-400 focus:border-emerald-400 focus:ring-emerald-400/20 shadow-sm rounded-2xl font-medium w-full"
                 />
               </div>
-              <div className="flex gap-2 flex-wrap items-center bg-white p-2 rounded-2xl border border-amber-100 shadow-sm">
+              <div className="flex gap-2 flex-wrap items-center bg-white p-2 rounded-2xl border border-lime-100 shadow-sm">
                 {(['all', 'new', 'in_progress', 'resolved', 'archived'] as const).map((f) => (
                   <button
                     key={f}
                     onClick={() => setFilter(f)}
                     className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${
                       filter === f
-                        ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20'
-                        : 'bg-transparent text-slate-500 hover:bg-orange-50 hover:text-orange-600'
+                        ? 'bg-gradient-to-r from-emerald-500 to-lime-500 text-white shadow-md shadow-emerald-500/20'
+                        : 'bg-transparent text-slate-500 hover:bg-emerald-50 hover:text-emerald-600'
                     }`}
                   >
                     {f === 'all' ? 'All' : statusLabels[f]}
@@ -247,12 +247,12 @@ export default function AdminInquiriesPage() {
                 <div
                   key={inquiry.id}
                   onClick={() => openInquiryDetails(inquiry)}
-                  className="p-5 rounded-3xl bg-white border border-amber-100 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 hover:border-orange-200 transition-all duration-300 cursor-pointer group hover:-translate-y-1"
+                  className="p-5 rounded-3xl bg-white border border-lime-100 shadow-sm hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-200 transition-all duration-300 cursor-pointer group hover:-translate-y-1"
                 >
                   <div className="flex flex-col lg:flex-row lg:items-center gap-6">
                     {/* Icon & Info */}
                     <div className="flex items-center gap-4 lg:w-1/3 shrink-0">
-                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-100 to-amber-100 border border-orange-200 flex items-center justify-center text-orange-700 font-bold text-lg shadow-sm group-hover:scale-105 transition-transform">
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-100 to-lime-100 border border-emerald-200 flex items-center justify-center text-emerald-700 font-bold text-lg shadow-sm group-hover:scale-105 transition-transform">
                         {inquiry.name.charAt(0).toUpperCase()}
                       </div>
                       <div className="min-w-0">
@@ -276,8 +276,8 @@ export default function AdminInquiriesPage() {
                         &ldquo;{inquiry.message}&rdquo;
                       </p>
                       {inquiry.project && (
-                        <p className="text-xs font-bold text-orange-600 mt-2 flex items-center gap-1">
-                          <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                        <p className="text-xs font-bold text-emerald-600 mt-2 flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                           Re: {inquiry.project.title}
                         </p>
                       )}
@@ -301,9 +301,9 @@ export default function AdminInquiriesPage() {
             </div>
 
             {filteredInquiries.length === 0 && (
-              <div className="text-center py-24 bg-white rounded-3xl border border-amber-100 border-dashed mt-8">
-                <div className="w-20 h-20 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Mail className="w-10 h-10 text-orange-400" />
+              <div className="text-center py-24 bg-white rounded-3xl border border-lime-100 border-dashed mt-8">
+                <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Mail className="w-10 h-10 text-emerald-400" />
                 </div>
                 <h3 className="text-xl font-extrabold text-slate-800 mb-2">No inquiries found</h3>
                 <p className="text-slate-500 font-medium">
@@ -322,9 +322,9 @@ export default function AdminInquiriesPage() {
       {/* Inquiry Details Modal */}
       {selectedInquiry && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
-          <div className="w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white rounded-3xl border border-amber-100 shadow-2xl">
+          <div className="w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white rounded-3xl border border-lime-100 shadow-2xl">
             {/* Header */}
-            <div className="sticky top-0 z-10 flex items-center justify-between p-6 border-b border-amber-100/50 bg-white/90 backdrop-blur-md">
+            <div className="sticky top-0 z-10 flex items-center justify-between p-6 border-b border-lime-100/50 bg-white/90 backdrop-blur-md">
               <h2 className="text-xl font-extrabold text-slate-800">Inquiry Details</h2>
               <button
                 onClick={() => setSelectedInquiry(null)}
@@ -337,7 +337,7 @@ export default function AdminInquiriesPage() {
             <div className="p-6 space-y-8">
               {/* Contact Info */}
               <div className="flex items-start gap-5 bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-100 to-amber-100 border border-orange-200 flex items-center justify-center text-orange-700 font-extrabold text-2xl shadow-sm shrink-0">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-100 to-lime-100 border border-emerald-200 flex items-center justify-center text-emerald-700 font-extrabold text-2xl shadow-sm shrink-0">
                   {selectedInquiry.name.charAt(0).toUpperCase()}
                 </div>
                 <div>
@@ -345,14 +345,14 @@ export default function AdminInquiriesPage() {
                   <div className="space-y-2 mt-3">
                     <a
                       href={`mailto:${selectedInquiry.email}`}
-                      className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-orange-600 transition-colors"
+                      className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors"
                     >
                       <Mail className="w-4 h-4 text-slate-400" />
                       {selectedInquiry.email}
                     </a>
                     <a
                       href={`tel:${selectedInquiry.phone}`}
-                      className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-orange-600 transition-colors"
+                      className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors"
                     >
                       <Phone className="w-4 h-4 text-slate-400" />
                       {selectedInquiry.phone}
@@ -364,7 +364,7 @@ export default function AdminInquiriesPage() {
               {/* Message */}
               <div>
                 <h4 className="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-orange-500" />
+                  <MessageSquare className="w-4 h-4 text-emerald-500" />
                   Client Message
                 </h4>
                 <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm">
@@ -374,12 +374,12 @@ export default function AdminInquiriesPage() {
 
               {/* Project Reference */}
               {selectedInquiry.project && (
-                <div className="p-5 rounded-2xl bg-orange-50 border border-orange-100">
-                  <h4 className="text-sm font-bold text-orange-800 mb-1 flex items-center gap-2">
+                <div className="p-5 rounded-2xl bg-emerald-50 border border-emerald-100">
+                  <h4 className="text-sm font-bold text-emerald-800 mb-1 flex items-center gap-2">
                     <Star className="w-4 h-4" />
                     Interested in Project
                   </h4>
-                  <p className="text-orange-600 font-medium">{selectedInquiry.project.title}</p>
+                  <p className="text-emerald-600 font-medium">{selectedInquiry.project.title}</p>
                 </div>
               )}
 
@@ -412,12 +412,12 @@ export default function AdminInquiriesPage() {
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="Add private notes about this inquiry..."
                   rows={4}
-                  className="bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-orange-400 focus:ring-orange-400/20 resize-none mb-3 shadow-sm rounded-2xl p-4"
+                  className="bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-emerald-400 focus:ring-emerald-400/20 resize-none mb-3 shadow-sm rounded-2xl p-4"
                 />
                 <Button
                   onClick={handleSaveNotes}
                   disabled={isProcessing}
-                  className="bg-slate-800 text-white hover:bg-slate-700 font-bold px-6 shadow-md"
+                  className="bg-emerald-500 text-white hover:bg-emerald-600 font-bold px-6 shadow-md shadow-emerald-500/20 border-0"
                 >
                   {isProcessing ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
                   Save Notes

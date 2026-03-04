@@ -112,23 +112,23 @@ export default function AdminSettingsPage() {
     setIsSaving(false);
   };
 
-  const inputClasses = "bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-orange-400 focus:ring-orange-400/20 transition-all shadow-sm rounded-xl py-2.5";
+  const inputClasses = "bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-emerald-400 focus:ring-emerald-400/20 transition-all shadow-sm rounded-xl py-2.5";
   const labelClasses = "text-slate-700 font-bold text-sm mb-1.5 block";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50/50 to-white text-slate-800 font-sans selection:bg-amber-200">
+    <div className="min-h-screen bg-gradient-to-br from-lime-50 via-emerald-50/50 to-white text-slate-800 font-sans selection:bg-lime-200">
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 min-h-screen bg-white/80 backdrop-blur-xl border-r border-amber-100/50 fixed left-0 top-0 z-50 hidden lg:flex flex-col shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
+        <aside className="w-64 min-h-screen bg-white/80 backdrop-blur-xl border-r border-lime-100/50 fixed left-0 top-0 z-50 hidden lg:flex flex-col shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
           {/* Logo */}
-          <div className="p-6 border-b border-amber-100/50">
+          <div className="p-6 border-b border-lime-100/50">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-lime-400 to-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-shadow">
                 <Sun className="w-6 h-6 text-white" />
               </div>
               <div>
                 <span className="font-bold text-slate-800 text-lg tracking-tight">Solar Systems</span>
-                <span className="block text-xs font-bold text-orange-500 uppercase tracking-wider">Admin Panel</span>
+                <span className="block text-xs font-bold text-emerald-500 uppercase tracking-wider">Admin Panel</span>
               </div>
             </Link>
           </div>
@@ -144,11 +144,11 @@ export default function AdminSettingsPage() {
                   to={link.href}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-semibold ${
                     isActive
-                      ? 'bg-gradient-to-r from-amber-100 to-orange-50 text-orange-700 shadow-sm'
-                      : 'text-slate-500 hover:text-orange-600 hover:bg-orange-50/50'
+                      ? 'bg-gradient-to-r from-lime-100 to-emerald-50 text-emerald-700 shadow-sm'
+                      : 'text-slate-500 hover:text-emerald-600 hover:bg-emerald-50/50'
                   }`}
                 >
-                  <Icon className={`w-5 h-5 ${isActive ? 'text-orange-600' : 'text-slate-400'}`} />
+                  <Icon className={`w-5 h-5 ${isActive ? 'text-emerald-600' : 'text-slate-400'}`} />
                   {link.label}
                 </Link>
               );
@@ -156,9 +156,9 @@ export default function AdminSettingsPage() {
           </nav>
 
           {/* User & Logout */}
-          <div className="p-4 border-t border-amber-100/50 bg-white/50">
+          <div className="p-4 border-t border-lime-100/50 bg-white/50">
             <div className="flex items-center gap-3 mb-4 px-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-100 to-amber-100 border border-orange-200 flex items-center justify-center text-orange-700 font-bold uppercase">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-100 to-lime-100 border border-emerald-200 flex items-center justify-center text-emerald-700 font-bold uppercase">
                 {user?.email?.charAt(0) || 'A'}
               </div>
               <div className="flex-1 min-w-0">
@@ -177,7 +177,7 @@ export default function AdminSettingsPage() {
         </aside>
 
         {/* Mobile Sidebar */}
-        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-amber-100 z-50 pb-safe shadow-[0_-4px_24px_-12px_rgba(0,0,0,0.1)]">
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-lime-100 z-50 pb-safe shadow-[0_-4px_24px_-12px_rgba(0,0,0,0.1)]">
           <nav className="flex justify-around p-2">
             {sidebarLinks.map((link) => {
               const Icon = link.icon;
@@ -187,7 +187,7 @@ export default function AdminSettingsPage() {
                   key={link.href}
                   to={link.href}
                   className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-colors ${
-                    isActive ? 'text-orange-600' : 'text-slate-400 hover:text-orange-500'
+                    isActive ? 'text-emerald-600' : 'text-slate-400 hover:text-emerald-500'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -200,7 +200,7 @@ export default function AdminSettingsPage() {
 
         {/* Main Content */}
         <main className="flex-1 lg:ml-64 pb-20 lg:pb-0">
-          <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-xl border-b border-amber-100/50 px-6 py-4 shadow-sm">
+          <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-xl border-b border-lime-100/50 px-6 py-4 shadow-sm">
             <div className="flex items-center justify-between max-w-5xl mx-auto">
               <h1 className="text-xl font-extrabold text-slate-800">Global Settings</h1>
               <Button
@@ -209,7 +209,7 @@ export default function AdminSettingsPage() {
                 className={`font-bold shadow-md ${
                   isSaved
                     ? 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/20'
-                    : 'bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:from-orange-600 hover:to-amber-600 shadow-orange-500/20 border-0'
+                    : 'bg-gradient-to-r from-emerald-500 to-lime-500 text-white hover:from-emerald-600 hover:to-lime-600 shadow-emerald-500/20 border-0'
                 }`}
               >
                 {isSaving ? (
@@ -229,8 +229,8 @@ export default function AdminSettingsPage() {
             {/* Organization Settings */}
             <section>
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-100 to-amber-100 flex items-center justify-center shadow-sm border border-orange-200">
-                  <Building2 className="w-6 h-6 text-orange-500" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-100 to-lime-100 flex items-center justify-center shadow-sm border border-emerald-200">
+                  <Building2 className="w-6 h-6 text-emerald-500" />
                 </div>
                 <div>
                   <h2 className="text-2xl font-extrabold text-slate-800">Organization Info</h2>
@@ -238,7 +238,7 @@ export default function AdminSettingsPage() {
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-6 p-8 rounded-3xl bg-white border border-amber-100 shadow-sm">
+              <div className="grid sm:grid-cols-2 gap-6 p-8 rounded-3xl bg-white border border-lime-100 shadow-sm">
                 <div>
                   <Label className={labelClasses}>Organization Name</Label>
                   <Input
@@ -287,7 +287,7 @@ export default function AdminSettingsPage() {
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8 rounded-3xl bg-white border border-amber-100 shadow-sm">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8 rounded-3xl bg-white border border-lime-100 shadow-sm">
                 <div>
                   <Label className={labelClasses}>kWh per kW per Month</Label>
                   <Input
@@ -357,7 +357,7 @@ export default function AdminSettingsPage() {
                   </div>
                 </div>
 
-                <div className="p-8 rounded-3xl bg-white border border-amber-100 shadow-sm h-[calc(100%-88px)]">
+                <div className="p-8 rounded-3xl bg-white border border-lime-100 shadow-sm h-[calc(100%-88px)]">
                   <div className="max-w-xs">
                     <Label className={labelClasses}>Carousel Speed (seconds)</Label>
                     <Input
@@ -383,7 +383,7 @@ export default function AdminSettingsPage() {
                   </div>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-6 p-8 rounded-3xl bg-white border border-amber-100 shadow-sm">
+                <div className="grid sm:grid-cols-2 gap-6 p-8 rounded-3xl bg-white border border-lime-100 shadow-sm">
                   <div>
                     <Label className={labelClasses}>Latitude</Label>
                     <Input

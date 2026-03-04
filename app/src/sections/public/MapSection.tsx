@@ -65,7 +65,7 @@ export default function MapSection() {
           <div className="max-w-2xl">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight">
               Our Projects <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-500">
                 Across India
               </span>
             </h2>
@@ -83,8 +83,8 @@ export default function MapSection() {
                   onMouseLeave={() => setActiveCity(null)}
                   className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border ${
                     activeCity === city
-                      ? 'bg-orange-500 text-white border-orange-500 shadow-lg shadow-orange-500/20'
-                      : 'bg-white text-slate-600 border-slate-200 hover:border-orange-300 hover:text-orange-600'
+                      ? 'bg-emerald-500 text-white border-emerald-500 shadow-lg shadow-emerald-500/20'
+                      : 'bg-white text-slate-600 border-slate-200 hover:border-emerald-300 hover:text-emerald-600'
                   }`}
                 >
                   {city}
@@ -93,7 +93,7 @@ export default function MapSection() {
 
               <Link
                 to="/projects"
-                className="px-5 py-2.5 rounded-full text-sm font-bold text-orange-600 bg-orange-50 hover:bg-orange-100 transition-colors"
+                className="px-5 py-2.5 rounded-full text-sm font-bold text-emerald-600 bg-emerald-50 hover:bg-emerald-100 transition-colors"
               >
                 View All →
               </Link>
@@ -104,9 +104,9 @@ export default function MapSection() {
                 <Link
                   key={project.id}
                   to={`/projects/${project.id}`}
-                  className="group flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all duration-300 hover:-translate-y-1"
+                  className="group flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:border-emerald-200 transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center shrink-0 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shrink-0 transition-colors">
                     <Zap className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
@@ -152,7 +152,7 @@ export default function MapSection() {
                         <br />
                         <Link
                           to={`/projects/${project.id}`}
-                          className="text-orange-600 font-bold"
+                          className="text-emerald-600 font-bold"
                         >
                           View Project →
                         </Link>

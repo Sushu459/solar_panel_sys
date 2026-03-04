@@ -45,31 +45,31 @@ export default function AdminLoginPage() {
     navigate('/admin', { replace: true });
   };
 
-  const inputClasses = "bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-orange-400 focus:ring-orange-400/20 transition-all shadow-sm rounded-xl py-6";
+  const inputClasses = "bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-emerald-400 focus:ring-emerald-400/20 transition-all shadow-sm rounded-xl py-6";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50/50 to-white flex items-center justify-center p-4 font-sans selection:bg-amber-200">
+    <div className="min-h-screen bg-gradient-to-br from-lime-50 via-emerald-50/50 to-white flex items-center justify-center p-4 font-sans selection:bg-lime-200">
       {/* Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-40 blur-3xl bg-amber-300/40 mix-blend-multiply" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-40 blur-3xl bg-orange-300/40 mix-blend-multiply" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-40 blur-3xl bg-lime-300/40 mix-blend-multiply" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-40 blur-3xl bg-emerald-300/40 mix-blend-multiply" />
       </div>
 
       <div className="relative w-full max-w-md z-10">
         {/* Back Button */}
         <button
           onClick={() => navigate('/')}
-          className="absolute -top-16 left-0 flex items-center gap-2 text-slate-500 hover:text-orange-600 font-bold transition-colors"
+          className="absolute -top-16 left-0 flex items-center gap-2 text-slate-500 hover:text-emerald-600 font-bold transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Website
         </button>
 
         {/* Login Card */}
-        <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 sm:p-10 border border-amber-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+        <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 sm:p-10 border border-lime-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
           {/* Logo */}
           <div className="text-center mb-10">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-orange-500/20">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-lime-400 to-emerald-500 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-emerald-500/20">
               <Sun className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-2xl font-extrabold text-slate-800 mb-2 tracking-tight">Admin Login</h1>
@@ -81,7 +81,7 @@ export default function AdminLoginPage() {
             {/* Email */}
             <div className="space-y-2">
               <Label htmlFor="email" className="text-slate-700 font-bold flex items-center gap-2">
-                <Mail className="w-4 h-4 text-orange-500" />
+                <Mail className="w-4 h-4 text-emerald-500" />
                 Email
               </Label>
               <Input
@@ -97,7 +97,7 @@ export default function AdminLoginPage() {
             {/* Password */}
             <div className="space-y-2">
               <Label htmlFor="password" className="text-slate-700 font-bold flex items-center gap-2">
-                <Lock className="w-4 h-4 text-orange-500" />
+                <Lock className="w-4 h-4 text-emerald-500" />
                 Password
               </Label>
               <div className="relative">
@@ -112,7 +112,7 @@ export default function AdminLoginPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-orange-500 transition-colors p-1"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-emerald-500 transition-colors p-1"
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
                 >
                   {showPassword ? (
@@ -128,7 +128,7 @@ export default function AdminLoginPage() {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:from-orange-600 hover:to-amber-600 shadow-md shadow-orange-500/20 py-6 font-bold rounded-xl border-0 mt-2"
+              className="w-full bg-gradient-to-r from-emerald-500 to-lime-500 text-white hover:from-emerald-600 hover:to-lime-600 shadow-md shadow-emerald-500/20 py-6 font-bold rounded-xl border-0 mt-2"
             >
               {isSubmitting ? (
                 <>
@@ -142,9 +142,9 @@ export default function AdminLoginPage() {
           </form>
 
           {/* Demo Credentials */}
-          <div className="mt-8 p-5 rounded-2xl bg-orange-50/80 border border-orange-100">
-            <p className="text-sm text-orange-800 text-center font-medium leading-relaxed">
-              <strong className="block text-orange-900 mb-1">Demo Credentials:</strong>
+          <div className="mt-8 p-5 rounded-2xl bg-emerald-50/80 border border-emerald-100">
+            <p className="text-sm text-emerald-800 text-center font-medium leading-relaxed">
+              <strong className="block text-emerald-900 mb-1">Demo Credentials:</strong>
               Email: admin@solarsystems.in
               <br />
               Password: admin123

@@ -41,7 +41,7 @@ function StarRating({ rating }: { rating: number }) {
           key={star}
           className={`w-4 h-4 ${
             star <= rating
-              ? 'fill-amber-400 text-amber-400'
+              ? 'fill-lime-400 text-lime-400'
               : 'fill-slate-200 text-slate-200'
           }`}
         />
@@ -110,19 +110,19 @@ export default function AdminReviewsPage() {
   const approvedCount = reviews.filter((r) => r.is_approved).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50/50 to-white text-slate-800 font-sans selection:bg-amber-200">
+    <div className="min-h-screen bg-gradient-to-br from-lime-50 via-emerald-50/50 to-white text-slate-800 font-sans selection:bg-lime-200">
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 min-h-screen bg-white/80 backdrop-blur-xl border-r border-amber-100/50 fixed left-0 top-0 z-50 hidden lg:flex flex-col shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
+        <aside className="w-64 min-h-screen bg-white/80 backdrop-blur-xl border-r border-lime-100/50 fixed left-0 top-0 z-50 hidden lg:flex flex-col shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
           {/* Logo */}
-          <div className="p-6 border-b border-amber-100/50">
+          <div className="p-6 border-b border-lime-100/50">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-lime-400 to-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-shadow">
                 <Sun className="w-6 h-6 text-white" />
               </div>
               <div>
                 <span className="font-bold text-slate-800 text-lg tracking-tight">Solar Systems</span>
-                <span className="block text-xs font-bold text-orange-500 uppercase tracking-wider">Admin Panel</span>
+                <span className="block text-xs font-bold text-emerald-500 uppercase tracking-wider">Admin Panel</span>
               </div>
             </Link>
           </div>
@@ -138,11 +138,11 @@ export default function AdminReviewsPage() {
                   to={link.href}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-semibold ${
                     isActive
-                      ? 'bg-gradient-to-r from-amber-100 to-orange-50 text-orange-700 shadow-sm'
-                      : 'text-slate-500 hover:text-orange-600 hover:bg-orange-50/50'
+                      ? 'bg-gradient-to-r from-lime-100 to-emerald-50 text-emerald-700 shadow-sm'
+                      : 'text-slate-500 hover:text-emerald-600 hover:bg-emerald-50/50'
                   }`}
                 >
-                  <Icon className={`w-5 h-5 ${isActive ? 'text-orange-600' : 'text-slate-400'}`} />
+                  <Icon className={`w-5 h-5 ${isActive ? 'text-emerald-600' : 'text-slate-400'}`} />
                   {link.label}
                 </Link>
               );
@@ -150,9 +150,9 @@ export default function AdminReviewsPage() {
           </nav>
 
           {/* User & Logout */}
-          <div className="p-4 border-t border-amber-100/50 bg-white/50">
+          <div className="p-4 border-t border-lime-100/50 bg-white/50">
             <div className="flex items-center gap-3 mb-4 px-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-100 to-amber-100 border border-orange-200 flex items-center justify-center text-orange-700 font-bold uppercase">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-100 to-lime-100 border border-emerald-200 flex items-center justify-center text-emerald-700 font-bold uppercase">
                 {user?.email?.charAt(0) || 'A'}
               </div>
               <div className="flex-1 min-w-0">
@@ -171,7 +171,7 @@ export default function AdminReviewsPage() {
         </aside>
 
         {/* Mobile Sidebar */}
-        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-amber-100 z-50 pb-safe shadow-[0_-4px_24px_-12px_rgba(0,0,0,0.1)]">
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-lime-100 z-50 pb-safe shadow-[0_-4px_24px_-12px_rgba(0,0,0,0.1)]">
           <nav className="flex justify-around p-2">
             {sidebarLinks.map((link) => {
               const Icon = link.icon;
@@ -181,7 +181,7 @@ export default function AdminReviewsPage() {
                   key={link.href}
                   to={link.href}
                   className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-colors ${
-                    isActive ? 'text-orange-600' : 'text-slate-400 hover:text-orange-500'
+                    isActive ? 'text-emerald-600' : 'text-slate-400 hover:text-emerald-500'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -194,12 +194,12 @@ export default function AdminReviewsPage() {
 
         {/* Main Content */}
         <main className="flex-1 lg:ml-64 pb-20 lg:pb-0">
-          <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-xl border-b border-amber-100/50 px-6 py-4 shadow-sm">
+          <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-xl border-b border-lime-100/50 px-6 py-4 shadow-sm">
             <div className="flex items-center justify-between max-w-6xl mx-auto">
               <h1 className="text-xl font-extrabold text-slate-800">Reviews Management</h1>
               <div className="flex items-center gap-3">
                 {pendingCount > 0 && (
-                  <span className="px-3 py-1.5 rounded-full bg-amber-100 text-amber-700 border border-amber-200 text-xs font-bold shadow-sm">
+                  <span className="px-3 py-1.5 rounded-full bg-lime-100 text-lime-700 border border-lime-200 text-xs font-bold shadow-sm">
                     {pendingCount} Pending
                   </span>
                 )}
@@ -222,18 +222,18 @@ export default function AdminReviewsPage() {
                   placeholder="Search reviews by name, comment, or project..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 py-6 bg-white border-amber-200 text-slate-800 placeholder:text-slate-400 focus:border-orange-400 focus:ring-orange-400/20 shadow-sm rounded-2xl font-medium w-full"
+                  className="pl-12 py-6 bg-white border-lime-200 text-slate-800 placeholder:text-slate-400 focus:border-emerald-400 focus:ring-emerald-400/20 shadow-sm rounded-2xl font-medium w-full"
                 />
               </div>
-              <div className="flex gap-2 flex-wrap items-center bg-white p-2 rounded-2xl border border-amber-100 shadow-sm">
+              <div className="flex gap-2 flex-wrap items-center bg-white p-2 rounded-2xl border border-lime-100 shadow-sm">
                 {(['all', 'pending', 'approved'] as const).map((f) => (
                   <button
                     key={f}
                     onClick={() => setFilter(f)}
                     className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${
                       filter === f
-                        ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20'
-                        : 'bg-transparent text-slate-500 hover:bg-orange-50 hover:text-orange-600'
+                        ? 'bg-gradient-to-r from-emerald-500 to-lime-500 text-white shadow-md shadow-emerald-500/20'
+                        : 'bg-transparent text-slate-500 hover:bg-emerald-50 hover:text-emerald-600'
                     }`}
                   >
                     {f.charAt(0).toUpperCase() + f.slice(1)}
@@ -249,19 +249,19 @@ export default function AdminReviewsPage() {
                   key={review.id}
                   className={`p-6 md:p-8 rounded-3xl border transition-all duration-300 ${
                     review.is_approved
-                      ? 'bg-white border-amber-100 shadow-sm hover:shadow-md'
-                      : 'bg-gradient-to-br from-amber-50 to-orange-50/30 border-amber-200 shadow-md shadow-amber-500/5 relative overflow-hidden'
+                      ? 'bg-white border-lime-100 shadow-sm hover:shadow-md'
+                      : 'bg-gradient-to-br from-lime-50 to-emerald-50/30 border-lime-200 shadow-md shadow-lime-500/5 relative overflow-hidden'
                   }`}
                 >
                   {/* Status Indicator Stripe for Pending */}
                   {!review.is_approved && (
-                    <div className="absolute top-0 left-0 w-1.5 h-full bg-amber-400" />
+                    <div className="absolute top-0 left-0 w-1.5 h-full bg-lime-400" />
                   )}
 
                   <div className="flex flex-col lg:flex-row lg:items-start gap-6">
                     {/* Avatar & Info */}
                     <div className="flex items-start gap-4 lg:w-1/4 shrink-0">
-                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-100 to-amber-100 border border-orange-200 flex items-center justify-center text-orange-700 font-extrabold text-xl shadow-sm">
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-100 to-lime-100 border border-emerald-200 flex items-center justify-center text-emerald-700 font-extrabold text-xl shadow-sm">
                         {review.reviewer_name.charAt(0).toUpperCase()}
                       </div>
                       <div>
@@ -270,8 +270,8 @@ export default function AdminReviewsPage() {
                           <StarRating rating={review.rating} />
                         </div>
                         {review.project && (
-                          <p className="text-xs font-bold text-orange-600 mt-1 flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                          <p className="text-xs font-bold text-emerald-600 mt-1 flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                             {review.project.title}
                           </p>
                         )}
@@ -295,7 +295,7 @@ export default function AdminReviewsPage() {
                       {review.admin_response && (
                         <div className="mt-5 p-5 rounded-2xl bg-slate-50 border border-slate-100 relative">
                           <div className="absolute -top-2.5 left-6 w-5 h-5 bg-slate-50 border-t border-l border-slate-100 transform rotate-45" />
-                          <p className="text-xs text-orange-600 font-extrabold mb-1.5 uppercase tracking-wider relative z-10">
+                          <p className="text-xs text-emerald-600 font-extrabold mb-1.5 uppercase tracking-wider relative z-10">
                             Your Response
                           </p>
                           <p className="text-slate-600 font-medium relative z-10">{review.admin_response}</p>
@@ -310,14 +310,14 @@ export default function AdminReviewsPage() {
                             value={responseText}
                             onChange={(e) => setResponseText(e.target.value)}
                             rows={3}
-                            className="bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-orange-400 focus:ring-orange-400/20 resize-none mb-3 shadow-sm rounded-xl"
+                            className="bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-emerald-400 focus:ring-emerald-400/20 resize-none mb-3 shadow-sm rounded-xl"
                           />
                           <div className="flex gap-3">
                             <Button
                               size="sm"
                               onClick={() => handleApprove(review.id)}
                               disabled={isProcessing === review.id}
-                              className="bg-emerald-500 text-white hover:bg-emerald-600 shadow-sm font-bold flex-1 md:flex-none"
+                              className="bg-emerald-500 text-white hover:bg-emerald-500 shadow-sm font-bold flex-1 md:flex-none"
                             >
                               {isProcessing === review.id ? (
                                 <Loader2 className="w-4 h-4 animate-spin" />
@@ -335,7 +335,7 @@ export default function AdminReviewsPage() {
                                 setRespondingTo(null);
                                 setResponseText('');
                               }}
-                              className="border-slate-200 text-slate-600 hover:bg-slate-50 font-bold"
+                              className="bg-white border-slate-200 text-slate-600 hover:bg-white font-bold"
                             >
                               Cancel
                             </Button>
@@ -352,7 +352,7 @@ export default function AdminReviewsPage() {
                             size="sm"
                             onClick={() => handleApprove(review.id)}
                             disabled={isProcessing === review.id}
-                            className="bg-emerald-500 text-white hover:bg-emerald-600 shadow-sm font-bold flex-1"
+                            className="bg-emerald-500 text-white hover:bg-emerald-500 shadow-sm font-bold flex-1"
                           >
                             {isProcessing === review.id ? (
                               <Loader2 className="w-4 h-4 animate-spin" />
@@ -367,7 +367,7 @@ export default function AdminReviewsPage() {
                             size="sm"
                             variant="outline"
                             onClick={() => setRespondingTo(review.id)}
-                            className="border-slate-200 text-slate-600 hover:text-orange-600 hover:bg-orange-50 font-bold flex-1"
+                            className="bg-white border-slate-200 text-slate-600 hover:text-emerald-600 hover:bg-white font-bold flex-1"
                           >
                             <MessageSquare className="w-4 h-4 mr-1.5" />
                             Respond
@@ -379,7 +379,7 @@ export default function AdminReviewsPage() {
                         variant="outline"
                         onClick={() => handleDelete(review.id)}
                         disabled={isProcessing === review.id}
-                        className="border-red-100 text-red-500 hover:bg-red-50 hover:border-red-200 font-bold flex-1 lg:mt-auto"
+                        className="bg-white border-red-100 text-red-500 hover:bg-white hover:border-red-100 font-bold flex-1 lg:mt-auto"
                       >
                         {isProcessing === review.id ? (
                           <Loader2 className="w-4 h-4 animate-spin" />
@@ -397,9 +397,9 @@ export default function AdminReviewsPage() {
             </div>
 
             {filteredReviews.length === 0 && (
-              <div className="text-center py-24 bg-white rounded-3xl border border-amber-100 border-dashed mt-8">
-                <div className="w-20 h-20 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Star className="w-10 h-10 text-amber-400" />
+              <div className="text-center py-24 bg-white rounded-3xl border border-lime-100 border-dashed mt-8">
+                <div className="w-20 h-20 bg-lime-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Star className="w-10 h-10 text-lime-400" />
                 </div>
                 <h3 className="text-xl font-extrabold text-slate-800 mb-2">No reviews found</h3>
                 <p className="text-slate-500 font-medium">

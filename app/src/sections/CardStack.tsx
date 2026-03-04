@@ -80,7 +80,7 @@ const CardStack = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-amber-50/30"
+      className="relative w-full bg-lime-50/30"
       style={{ minHeight: `${(cards.length + 1) * 100}vh` }}
     >
       {/* Section Header */}
@@ -88,7 +88,7 @@ const CardStack = () => {
         <h2 className="font-extrabold text-4xl md:text-5xl lg:text-6xl text-slate-900 tracking-tight">
           {cardStackConfig.sectionTitle}
         </h2>
-        <p className="font-bold text-sm md:text-base text-orange-600 uppercase tracking-[0.2em] mt-4">
+        <p className="font-bold text-sm md:text-base text-emerald-600 uppercase tracking-[0.2em] mt-4">
           {cardStackConfig.sectionSubtitle}
         </p>
       </div>
@@ -109,7 +109,7 @@ const CardStack = () => {
                 zIndex: index,
               }}
             >
-              <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-orange-900/10 border border-amber-100 bg-white h-full group">
+              <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-emerald-900/10 border border-lime-100 bg-white h-full group">
                 
                 {/* Image */}
                 <div className="absolute inset-0 overflow-hidden">

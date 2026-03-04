@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Sun, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowUpRight } from 'lucide-react';
 import { useData } from '../../contexts/DataContext';
 
 const footerLinks = {
@@ -50,8 +50,13 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#dac314] to-orange-400 flex items-center justify-center">
-                <Sun className="w-6 h-6 text-black" />
+              <div className="w-11 h-11 rounded-full bg-white border border-emerald-100 flex items-center justify-center overflow-hidden shadow-sm">
+                <img
+                  src="/solar_logo.jpeg"
+                  alt="Ever Green Solar Systems logo"
+                  className="w-full h-full object-contain p-0.5"
+                  loading="lazy"
+                />
               </div>
               <div>
                 <span className="text-xl font-bold text-white">

@@ -14,7 +14,7 @@ function StarRating({ rating }: { rating: number }) {
           key={star}
           className={`w-4 h-4 ${
             star <= rating
-              ? 'fill-amber-400 text-amber-400'
+              ? 'fill-lime-400 text-lime-400'
               : 'fill-slate-200 text-slate-200'
           }`}
         />
@@ -26,9 +26,9 @@ function StarRating({ rating }: { rating: number }) {
 // Review Card Component
 function ReviewCard({ review }: { review: Review }) {
   return (
-    <div className="bg-white rounded-[2rem] p-6 border border-amber-100 shadow-sm hover:shadow-lg hover:border-orange-200 transition-all h-full flex flex-col">
+    <div className="bg-white rounded-[2rem] p-6 border border-lime-100 shadow-sm hover:shadow-lg hover:border-emerald-200 transition-all h-full flex flex-col">
       {/* Quote Icon */}
-      <Quote className="w-8 h-8 text-orange-300 mb-4" />
+      <Quote className="w-8 h-8 text-emerald-300 mb-4" />
 
       {/* Rating */}
       <StarRating rating={review.rating} />
@@ -39,8 +39,8 @@ function ReviewCard({ review }: { review: Review }) {
       </p>
 
       {/* Author */}
-      <div className="flex items-center gap-3 pt-4 border-t border-amber-100">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center text-white font-bold">
+      <div className="flex items-center gap-3 pt-4 border-t border-lime-100">
+        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-lime-500 flex items-center justify-center text-white font-bold">
           {review.reviewer_name.charAt(0).toUpperCase()}
         </div>
         <div>
@@ -56,8 +56,8 @@ function ReviewCard({ review }: { review: Review }) {
 
       {/* Admin Response */}
       {review.admin_response && (
-        <div className="mt-4 p-3 rounded-xl bg-orange-50 border border-orange-100">
-          <div className="text-xs text-orange-600 font-bold mb-1">Response from Ever Green Solar:</div>
+        <div className="mt-4 p-3 rounded-xl bg-emerald-50 border border-emerald-100">
+          <div className="text-xs text-emerald-600 font-bold mb-1">Response from Ever Green Solar:</div>
           <p className="text-sm text-slate-600">{review.admin_response}</p>
         </div>
       )}
@@ -97,13 +97,13 @@ export default function ReviewsSection() {
     approvedReviews.reduce((sum, r) => sum + r.rating, 0) / approvedReviews.length;
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-br from-white via-orange-50/30 to-amber-50/40">
+    <section className="py-16 sm:py-24 bg-gradient-to-br from-white via-emerald-50/30 to-lime-50/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
           <div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-3">
-              What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Clients Say</span>
+              What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-500">Clients Say</span>
             </h2>
             <p className="text-slate-600 font-medium max-w-xl">
               Real stories from real customers who have transformed their energy consumption
@@ -111,14 +111,14 @@ export default function ReviewsSection() {
           </div>
 
           {/* Rating Summary */}
-          <div className="flex items-center gap-4 bg-white rounded-2xl p-4 border border-amber-100 shadow-sm">
+          <div className="flex items-center gap-4 bg-white rounded-2xl p-4 border border-lime-100 shadow-sm">
             <div className="text-center">
-              <div className="text-3xl font-bold text-orange-500">
+              <div className="text-3xl font-bold text-emerald-500">
                 {averageRating.toFixed(1)}
               </div>
               <div className="text-xs text-slate-500">out of 5</div>
             </div>
-            <div className="border-l border-amber-100 pl-4">
+            <div className="border-l border-lime-100 pl-4">
               <StarRating rating={Math.round(averageRating)} />
               <div className="text-sm text-slate-500 mt-1">
                 {approvedReviews.length} reviews
@@ -139,7 +139,7 @@ export default function ReviewsSection() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prevPage}
-              className="p-2 rounded-full bg-orange-50 text-slate-500 hover:bg-orange-100 hover:text-slate-700 transition-colors border border-amber-200"
+              className="p-2 rounded-full bg-emerald-50 text-slate-500 hover:bg-emerald-100 hover:text-slate-700 transition-colors border border-lime-200"
               aria-label="Previous reviews"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -150,7 +150,7 @@ export default function ReviewsSection() {
                   key={i}
                   onClick={() => setCurrentPage(i)}
                   className={`w-2 h-2 rounded-full transition-colors ${
-                    i === currentPage ? 'bg-orange-500' : 'bg-amber-200'
+                    i === currentPage ? 'bg-emerald-500' : 'bg-lime-200'
                   }`}
                   aria-label={`Go to page ${i + 1}`}
                 />
@@ -158,7 +158,7 @@ export default function ReviewsSection() {
             </div>
             <button
               onClick={nextPage}
-              className="p-2 rounded-full bg-orange-50 text-slate-500 hover:bg-orange-100 hover:text-slate-700 transition-colors border border-amber-200"
+              className="p-2 rounded-full bg-emerald-50 text-slate-500 hover:bg-emerald-100 hover:text-slate-700 transition-colors border border-lime-200"
               aria-label="Next reviews"
             >
               <ChevronRight className="w-5 h-5" />
@@ -170,7 +170,7 @@ export default function ReviewsSection() {
         <div className="text-center mt-12">
           <Link to="/contact">
             <Button
-              className="bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:from-orange-600 hover:to-amber-600 rounded-full px-8 py-6 font-bold shadow-lg shadow-orange-500/20 border-0"
+              className="bg-gradient-to-r from-emerald-500 to-lime-500 text-white hover:from-emerald-600 hover:to-lime-600 rounded-full px-8 py-6 font-bold shadow-lg shadow-emerald-500/20 border-0"
             >
               Share Your Experience
               <ArrowRight className="w-4 h-4 ml-2" />

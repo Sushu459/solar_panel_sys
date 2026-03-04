@@ -135,13 +135,13 @@ function ProjectModal({
     }));
   };
 
-  const inputClasses = "bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-orange-400 focus:ring-orange-400/20 transition-all shadow-sm";
+  const inputClasses = "bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-emerald-400 focus:ring-emerald-400/20 transition-all shadow-sm";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
-      <div className="w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white rounded-3xl border border-amber-100 shadow-2xl">
+      <div className="w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white rounded-3xl border border-lime-100 shadow-2xl">
         {/* Header */}
-        <div className="sticky top-0 z-10 flex items-center justify-between p-6 border-b border-amber-100/50 bg-white/90 backdrop-blur-md">
+        <div className="sticky top-0 z-10 flex items-center justify-between p-6 border-b border-lime-100/50 bg-white/90 backdrop-blur-md">
           <h2 className="text-xl font-extrabold text-slate-800">
             {project ? 'Edit Project' : 'Add New Project'}
           </h2>
@@ -197,11 +197,10 @@ function ProjectModal({
               <Label className="text-slate-700 font-bold">Status</Label>
               <select
                 value={formData.status}
-                onChange={(e) => setFormData((prev) => ({ ...prev, status: e.target.value as 'active' | 'completed' | 'pending' }))}
-                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 shadow-sm focus:border-orange-400 focus:ring-orange-400/20 focus:outline-none transition-all font-medium"
+                onChange={(e) => setFormData((prev) => ({ ...prev, status: e.target.value as 'active' | 'pending' }))}
+                className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 shadow-sm focus:border-emerald-400 focus:ring-emerald-400/20 focus:outline-none transition-all font-medium"
               >
                 <option value="active">Active</option>
-                <option value="completed">Completed</option>
                 <option value="pending">Pending</option>
               </select>
             </div>
@@ -290,7 +289,7 @@ function ProjectModal({
                 placeholder="Enter image URL"
                 className={inputClasses}
               />
-              <Button type="button" onClick={addImage} variant="outline" className="border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-orange-600">
+              <Button type="button" onClick={addImage} variant="outline" className="bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-emerald-600">
                 <Upload className="w-4 h-4" />
               </Button>
             </div>
@@ -321,7 +320,7 @@ function ProjectModal({
                 className={inputClasses}
                 onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addTag())}
               />
-              <Button type="button" onClick={addTag} variant="outline" className="border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-orange-600">
+              <Button type="button" onClick={addTag} variant="outline" className="bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-emerald-600">
                 <Plus className="w-4 h-4" />
               </Button>
             </div>
@@ -329,7 +328,7 @@ function ProjectModal({
               {formData.tags?.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1.5 rounded-full bg-orange-50 text-orange-700 text-xs font-bold border border-orange-200 shadow-sm flex items-center gap-2"
+                  className="px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200 shadow-sm flex items-center gap-2"
                 >
                   {tag}
                   <button type="button" onClick={() => removeTag(tag)} className="hover:text-red-500 transition-colors">
@@ -342,10 +341,10 @@ function ProjectModal({
 
           {/* Actions */}
           <div className="flex gap-4 pt-6 border-t border-slate-100">
-            <Button type="submit" className="flex-1 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold hover:from-orange-600 hover:to-amber-600 shadow-md shadow-orange-500/20">
+            <Button type="submit" className="flex-1 bg-gradient-to-r from-emerald-500 to-lime-500 text-white font-bold hover:from-emerald-600 hover:to-lime-600 shadow-md shadow-emerald-500/20">
               {project ? 'Update Project' : 'Create Project'}
             </Button>
-            <Button type="button" variant="outline" onClick={onClose} className="border-slate-200 text-slate-600 hover:bg-slate-50 font-semibold">
+            <Button type="button" variant="outline" onClick={onClose} className="bg-white border-slate-200 text-slate-600 hover:bg-slate-50 font-semibold">
               Cancel
             </Button>
           </div>
@@ -409,19 +408,19 @@ export default function AdminProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50/50 to-white text-slate-800 font-sans selection:bg-amber-200">
+    <div className="min-h-screen bg-gradient-to-br from-lime-50 via-emerald-50/50 to-white text-slate-800 font-sans selection:bg-lime-200">
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 min-h-screen bg-white/80 backdrop-blur-xl border-r border-amber-100/50 fixed left-0 top-0 z-50 hidden lg:flex flex-col shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
+        <aside className="w-64 min-h-screen bg-white/80 backdrop-blur-xl border-r border-lime-100/50 fixed left-0 top-0 z-50 hidden lg:flex flex-col shadow-[4px_0_24px_-12px_rgba(0,0,0,0.1)]">
           {/* Logo */}
-          <div className="p-6 border-b border-amber-100/50">
+          <div className="p-6 border-b border-lime-100/50">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-lime-400 to-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-shadow">
                 <Sun className="w-6 h-6 text-white" />
               </div>
               <div>
                 <span className="font-bold text-slate-800 text-lg tracking-tight">Solar Systems</span>
-                <span className="block text-xs font-bold text-orange-500 uppercase tracking-wider">Admin Panel</span>
+                <span className="block text-xs font-bold text-emerald-500 uppercase tracking-wider">Admin Panel</span>
               </div>
             </Link>
           </div>
@@ -437,11 +436,11 @@ export default function AdminProjectsPage() {
                   to={link.href}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-semibold ${
                     isActive
-                      ? 'bg-gradient-to-r from-amber-100 to-orange-50 text-orange-700 shadow-sm'
-                      : 'text-slate-500 hover:text-orange-600 hover:bg-orange-50/50'
+                      ? 'bg-gradient-to-r from-lime-100 to-emerald-50 text-emerald-700 shadow-sm'
+                      : 'text-slate-500 hover:text-emerald-600 hover:bg-emerald-50/50'
                   }`}
                 >
-                  <Icon className={`w-5 h-5 ${isActive ? 'text-orange-600' : 'text-slate-400'}`} />
+                  <Icon className={`w-5 h-5 ${isActive ? 'text-emerald-600' : 'text-slate-400'}`} />
                   {link.label}
                 </Link>
               );
@@ -449,9 +448,9 @@ export default function AdminProjectsPage() {
           </nav>
 
           {/* User & Logout */}
-          <div className="p-4 border-t border-amber-100/50 bg-white/50">
+          <div className="p-4 border-t border-lime-100/50 bg-white/50">
             <div className="flex items-center gap-3 mb-4 px-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-100 to-amber-100 border border-orange-200 flex items-center justify-center text-orange-700 font-bold uppercase">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-100 to-lime-100 border border-emerald-200 flex items-center justify-center text-emerald-700 font-bold uppercase">
                 {user?.email?.charAt(0) || 'A'}
               </div>
               <div className="flex-1 min-w-0">
@@ -470,7 +469,7 @@ export default function AdminProjectsPage() {
         </aside>
 
         {/* Mobile Sidebar */}
-        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-amber-100 z-50 pb-safe shadow-[0_-4px_24px_-12px_rgba(0,0,0,0.1)]">
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-lime-100 z-50 pb-safe shadow-[0_-4px_24px_-12px_rgba(0,0,0,0.1)]">
           <nav className="flex justify-around p-2">
             {sidebarLinks.map((link) => {
               const Icon = link.icon;
@@ -480,7 +479,7 @@ export default function AdminProjectsPage() {
                   key={link.href}
                   to={link.href}
                   className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-colors ${
-                    isActive ? 'text-orange-600' : 'text-slate-400 hover:text-orange-500'
+                    isActive ? 'text-emerald-600' : 'text-slate-400 hover:text-emerald-500'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -493,7 +492,7 @@ export default function AdminProjectsPage() {
 
         {/* Main Content */}
         <main className="flex-1 lg:ml-64 pb-20 lg:pb-0">
-          <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-xl border-b border-amber-100/50 px-6 py-4 shadow-sm">
+          <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-xl border-b border-lime-100/50 px-6 py-4 shadow-sm">
             <div className="flex items-center justify-between">
               <h1 className="text-xl font-extrabold text-slate-800">Projects Management</h1>
               <Button
@@ -501,7 +500,7 @@ export default function AdminProjectsPage() {
                   setEditingProject(null);
                   setIsModalOpen(true);
                 }}
-                className="bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:from-orange-600 hover:to-amber-600 font-bold shadow-md shadow-orange-500/20 border-0"
+                className="bg-gradient-to-r from-emerald-500 to-lime-500 text-white hover:from-emerald-600 hover:to-lime-600 font-bold shadow-md shadow-emerald-500/20 border-0"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Add Project
@@ -518,7 +517,7 @@ export default function AdminProjectsPage() {
                 placeholder="Search projects by title or city..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 py-6 bg-white border-amber-200 text-slate-800 placeholder:text-slate-400 focus:border-orange-400 focus:ring-orange-400/20 shadow-sm rounded-2xl font-medium"
+                className="pl-12 py-6 bg-white border-lime-200 text-slate-800 placeholder:text-slate-400 focus:border-emerald-400 focus:ring-emerald-400/20 shadow-sm rounded-2xl font-medium"
               />
             </div>
 
@@ -527,7 +526,7 @@ export default function AdminProjectsPage() {
               {filteredProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="bg-white rounded-3xl overflow-hidden border border-amber-100 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 group hover:-translate-y-1 flex flex-col"
+                  className="bg-white rounded-3xl overflow-hidden border border-lime-100 shadow-sm hover:shadow-xl hover:shadow-emerald-500/10 transition-all duration-300 group hover:-translate-y-1 flex flex-col"
                 >
                   {/* Image */}
                   <div className="relative h-56 shrink-0">
@@ -542,9 +541,7 @@ export default function AdminProjectsPage() {
                         className={`px-3 py-1.5 text-xs font-bold rounded-full shadow-sm border ${
                           project.status === 'active'
                             ? 'bg-emerald-100/90 text-emerald-700 border-emerald-200 backdrop-blur-sm'
-                            : project.status === 'completed'
-                            ? 'bg-blue-100/90 text-blue-700 border-blue-200 backdrop-blur-sm'
-                            : 'bg-amber-100/90 text-amber-700 border-amber-200 backdrop-blur-sm'
+                            : 'bg-lime-100/90 text-lime-700 border-lime-200 backdrop-blur-sm'
                         }`}
                       >
                         {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
@@ -557,11 +554,11 @@ export default function AdminProjectsPage() {
                     <h3 className="text-xl font-extrabold text-slate-800 mb-3 line-clamp-1">{project.title}</h3>
                     <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-500 mb-6">
                       <span className="flex items-center gap-1.5 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">
-                        <MapPin className="w-4 h-4 text-orange-500" />
+                        <MapPin className="w-4 h-4 text-emerald-500" />
                         {project.city}
                       </span>
                       <span className="flex items-center gap-1.5 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">
-                        <Zap className="w-4 h-4 text-amber-500" />
+                        <Zap className="w-4 h-4 text-lime-500" />
                         {project.capacity_kw} kW
                       </span>
                     </div>
@@ -574,7 +571,7 @@ export default function AdminProjectsPage() {
                           setEditingProject(project);
                           setIsModalOpen(true);
                         }}
-                        className="flex-1 border-slate-200 text-slate-600 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 font-bold transition-colors"
+                        className="flex-1 bg-emerald-50 border-emerald-200 text-emerald-700 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 font-bold transition-colors"
                       >
                         <Edit2 className="w-4 h-4 mr-1.5" />
                         Edit
@@ -584,7 +581,7 @@ export default function AdminProjectsPage() {
                         size="sm"
                         onClick={() => handleDelete(project.id)}
                         disabled={isDeleting === project.id}
-                        className="border-red-100 text-red-500 hover:bg-red-50 hover:border-red-200 font-bold transition-colors w-12 px-0"
+                        className="bg-white border-red-100 text-red-500 hover:bg-white hover:border-red-100 font-bold transition-colors w-12 px-0"
                       >
                         {isDeleting === project.id ? (
                           <Loader2 className="w-4 h-4 animate-spin" />
@@ -599,9 +596,9 @@ export default function AdminProjectsPage() {
             </div>
 
             {filteredProjects.length === 0 && (
-              <div className="text-center py-20 bg-white rounded-3xl border border-amber-100 border-dashed mt-8">
-                <div className="w-20 h-20 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <ImageIcon className="w-10 h-10 text-orange-400" />
+              <div className="text-center py-20 bg-white rounded-3xl border border-lime-100 border-dashed mt-8">
+                <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <ImageIcon className="w-10 h-10 text-emerald-400" />
                 </div>
                 <h3 className="text-xl font-extrabold text-slate-800 mb-2">No projects found</h3>
                 <p className="text-slate-500 font-medium mb-6">Create your first project to get started</p>
@@ -610,7 +607,7 @@ export default function AdminProjectsPage() {
                     setEditingProject(null);
                     setIsModalOpen(true);
                   }}
-                  className="bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold hover:from-orange-600 hover:to-amber-600 shadow-md shadow-orange-500/20"
+                  className="bg-gradient-to-r from-emerald-500 to-lime-500 text-white font-bold hover:from-emerald-600 hover:to-lime-600 shadow-md shadow-emerald-500/20"
                 >
                   <Plus className="w-4 h-4 mr-2" />
                   Add Project

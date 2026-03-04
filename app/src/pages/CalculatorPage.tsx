@@ -85,23 +85,23 @@ export default function CalculatorPage() {
     }).format(value);
   };
 
-  const inputClasses = "pl-12 bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-orange-400 focus:ring-orange-400/20 shadow-sm rounded-xl py-6 text-lg font-medium";
+  const inputClasses = "pl-12 bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-emerald-400 focus:ring-emerald-400/20 shadow-sm rounded-xl py-6 text-lg font-medium";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-white text-slate-800 selection:bg-amber-200">
+    <div className="min-h-screen bg-gradient-to-br from-lime-50 via-white to-white text-slate-800 selection:bg-lime-200">
       <Header />
 
       <main className="pt-32 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-orange-100 border border-orange-200 mb-6 shadow-sm">
-              <Calculator className="w-4 h-4 text-orange-600" />
-              <span className="text-xs font-bold text-orange-700 uppercase tracking-wider">Savings Calculator</span>
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-100 border border-emerald-200 mb-6 shadow-sm">
+              <Calculator className="w-4 h-4 text-emerald-600" />
+              <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider">Savings Calculator</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
               Switch to Solar, <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Save Every Month</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-500">Save Every Month</span>
             </h1>
             <p className="text-lg text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
               Discover your potential savings in seconds. Enter your current energy usage and see the impact of clean solar power on your pocket and the planet.
@@ -110,23 +110,27 @@ export default function CalculatorPage() {
 
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Input Section */}
-            <div className="bg-white rounded-[2.5rem] p-8 sm:p-10 border border-amber-100 shadow-xl shadow-orange-900/5">
+            <div className="bg-white rounded-[2.5rem] p-8 sm:p-10 border border-lime-100 shadow-xl shadow-emerald-900/5">
               <h2 className="text-2xl font-extrabold text-slate-800 mb-8">Tell us your usage</h2>
 
               {/* Toggle Switch */}
               <div className="flex items-center justify-between p-5 rounded-2xl bg-slate-50 border border-slate-100 mb-8">
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg ${!useKwh ? 'bg-orange-100 text-orange-600' : 'bg-white text-slate-300'} transition-all`}>
+                  <div className={`p-2 rounded-lg ${!useKwh ? 'bg-emerald-100 text-emerald-600' : 'bg-white text-slate-300'} transition-all`}>
                     <IndianRupee className="w-5 h-5" />
                   </div>
                   <span className={`text-sm font-bold ${!useKwh ? 'text-slate-800' : 'text-slate-400'}`}>Monthly Bill</span>
                 </div>
                 
-                <Switch checked={useKwh} onCheckedChange={setUseKwh} />
+                <Switch
+                  checked={useKwh}
+                  onCheckedChange={setUseKwh}
+                  className="data-[state=unchecked]:bg-emerald-200 data-[state=checked]:bg-emerald-500 border-emerald-300/60 shadow-sm [&_[data-slot=switch-thumb]]:bg-white"
+                />
                 
                 <div className="flex items-center gap-3">
                   <span className={`text-sm font-bold ${useKwh ? 'text-slate-800' : 'text-slate-400'}`}>Monthly kWh</span>
-                  <div className={`p-2 rounded-lg ${useKwh ? 'bg-amber-100 text-amber-600' : 'bg-white text-slate-300'} transition-all`}>
+                  <div className={`p-2 rounded-lg ${useKwh ? 'bg-lime-100 text-lime-600' : 'bg-white text-slate-300'} transition-all`}>
                     <Zap className="w-5 h-5" />
                   </div>
                 </div>
@@ -157,7 +161,7 @@ export default function CalculatorPage() {
               <Button
                 onClick={calculateSavings}
                 disabled={useKwh ? !monthlyKwh || parseFloat(monthlyKwh) <= 0 : !monthlyBill || parseFloat(monthlyBill) <= 0}
-                className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:from-orange-600 hover:to-amber-600 py-8 text-lg font-extrabold rounded-2xl shadow-lg shadow-orange-500/20 border-0 transition-transform hover:-translate-y-0.5"
+                className="w-full bg-gradient-to-r from-emerald-500 to-lime-500 text-white hover:from-emerald-600 hover:to-lime-600 py-8 text-lg font-extrabold rounded-2xl shadow-lg shadow-emerald-500/20 border-0 transition-transform hover:-translate-y-0.5"
               >
                 <Calculator className="w-6 h-6 mr-2" />
                 Analyze Savings
@@ -166,7 +170,7 @@ export default function CalculatorPage() {
               {/* Assumptions Toggle */}
               <button
                 onClick={() => setShowAssumptions(!showAssumptions)}
-                className="flex items-center gap-2 text-slate-400 hover:text-orange-600 mt-8 text-sm font-bold transition-colors mx-auto"
+                className="flex items-center gap-2 text-slate-400 hover:text-emerald-600 mt-8 text-sm font-bold transition-colors mx-auto"
               >
                 <Info className="w-4 h-4" />
                 How we calculate this
@@ -201,23 +205,23 @@ export default function CalculatorPage() {
                       <TrendingUp className="w-32 h-32" />
                     </div>
                     <div className="relative z-10">
-                      <h3 className="text-orange-400 font-extrabold uppercase tracking-widest text-xs mb-2">Estimated Annual Savings</h3>
+                      <h3 className="text-emerald-400 font-extrabold uppercase tracking-widest text-xs mb-2">Estimated Annual Savings</h3>
                       <div className="text-5xl sm:text-6xl font-extrabold text-white mb-4 tracking-tight">
                         {formatCurrency(results.yearlySavings)}
                       </div>
                       <div className="text-slate-300 font-medium text-lg">
-                        Reducing your bill by <span className="text-orange-400 font-bold">{formatNumber(results.savingsPercentage)}%</span>
+                        Reducing your bill by <span className="text-emerald-400 font-bold">{formatNumber(results.savingsPercentage)}%</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Stats Grid */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white rounded-[2rem] p-6 border border-amber-100 shadow-sm">
+                    <div className="bg-white rounded-[2rem] p-6 border border-lime-100 shadow-sm">
                       <div className="text-slate-400 font-bold text-[10px] uppercase tracking-wider mb-1">Recommended Size</div>
                       <div className="text-2xl font-extrabold text-slate-800">{formatNumber(results.recommendedSystemSize)} kW</div>
                     </div>
-                    <div className="bg-white rounded-[2rem] p-6 border border-amber-100 shadow-sm">
+                    <div className="bg-white rounded-[2rem] p-6 border border-lime-100 shadow-sm">
                       <div className="text-slate-400 font-bold text-[10px] uppercase tracking-wider mb-1">Payback Period</div>
                       <div className="text-2xl font-extrabold text-slate-800">{formatNumber(results.paybackPeriod, 1)} Years</div>
                     </div>
@@ -247,9 +251,9 @@ export default function CalculatorPage() {
                   </Link>
                 </div>
               ) : (
-                <div className="h-full min-h-[400px] flex flex-col items-center justify-center bg-white rounded-[2.5rem] p-10 border-2 border-amber-100 border-dashed text-center">
-                  <div className="w-20 h-20 rounded-full bg-amber-50 flex items-center justify-center mb-6">
-                    <TrendingUp className="w-10 h-10 text-amber-200" />
+                <div className="h-full min-h-[400px] flex flex-col items-center justify-center bg-white rounded-[2.5rem] p-10 border-2 border-lime-100 border-dashed text-center">
+                  <div className="w-20 h-20 rounded-full bg-lime-50 flex items-center justify-center mb-6">
+                    <TrendingUp className="w-10 h-10 text-lime-200" />
                   </div>
                   <h3 className="text-xl font-extrabold text-slate-800 mb-2">See your potential</h3>
                   <p className="text-slate-500 font-medium max-w-xs">

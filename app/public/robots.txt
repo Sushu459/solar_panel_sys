@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Block private areas
+Disallow: /admin
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /api
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://evergreensolarsystems.com/sitemap.xml
+Sitemap: https://evergreensolarsystems.com/sitemap.txt

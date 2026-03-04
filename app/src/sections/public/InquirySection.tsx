@@ -70,13 +70,13 @@ export default function InquirySection() {
     }
   };
 
-  const inputClasses = "bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-orange-400 focus:ring-orange-400/20 transition-all shadow-sm rounded-xl py-2.5";
+  const inputClasses = "bg-slate-50 border-slate-200 text-slate-800 placeholder:text-slate-400 focus:border-emerald-400 focus:ring-emerald-400/20 transition-all shadow-sm rounded-xl py-2.5";
 
   if (isSubmitted) {
     return (
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-amber-50/50">
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-lime-50/50">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-amber-100 shadow-xl shadow-orange-500/5">
+          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-lime-100 shadow-xl shadow-emerald-500/5">
             <div className="w-24 h-24 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-6 shadow-inner">
               <CheckCircle className="w-12 h-12 text-emerald-500" />
             </div>
@@ -92,7 +92,7 @@ export default function InquirySection() {
                 setIsSubmitted(false);
                 setFormData({ name: '', email: '', phone: '', message: '' });
               }}
-              className="bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:from-orange-600 hover:to-amber-600 rounded-full px-8 py-6 font-bold shadow-md shadow-orange-500/20 transition-transform hover:-translate-y-0.5 border-0"
+              className="bg-gradient-to-r from-emerald-500 to-lime-500 text-white hover:from-emerald-600 hover:to-lime-600 rounded-full px-8 py-6 font-bold shadow-md shadow-emerald-500/20 transition-transform hover:-translate-y-0.5 border-0"
             >
               Submit Another Inquiry
             </Button>
@@ -103,15 +103,15 @@ export default function InquirySection() {
   }
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-br from-white via-orange-50/30 to-amber-50/40">
+    <section className="py-16 sm:py-24 bg-gradient-to-br from-white via-emerald-50/30 to-lime-50/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Info */}
           <div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
-              Ready to Go <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Solar?</span>
+              Ready to Go <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-500">Solar?</span>
             </h2>
-            <p className="text-lg text-slate-600 font-medium mb-10 leading-relaxed">
+            <p className="text-lg text-white/50 font-medium mb-10 leading-relaxed">
               Get a free consultation and quote for your solar installation. 
               Our experts will help you find the perfect solution for your energy needs.
             </p>
@@ -142,12 +142,12 @@ export default function InquirySection() {
                 const Icon = item.icon;
                 return (
                   <div key={index} className="flex items-start gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-orange-100/80 flex items-center justify-center flex-shrink-0 border border-orange-200 shadow-sm group-hover:scale-110 transition-transform">
-                      <Icon className="w-5 h-5 text-orange-600" />
+                    <div className="w-10 h-10 rounded-xl bg-emerald-100/80 flex items-center justify-center flex-shrink-0 border border-emerald-200 shadow-sm group-hover:scale-110 transition-transform">
+                      <Icon className="w-5 h-5 text-emerald-600" />
                     </div>
                     <div>
                       <h3 className="font-bold text-slate-800 text-lg mb-1">{item.title}</h3>
-                      <p className="text-slate-500 font-medium">{item.description}</p>
+                      <p className="text-white/45 font-medium">{item.description}</p>
                     </div>
                   </div>
                 );
@@ -156,9 +156,9 @@ export default function InquirySection() {
           </div>
 
           {/* Right Column - Form */}
-          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-amber-100 shadow-xl shadow-orange-500/5 relative overflow-hidden">
+          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-lime-100 shadow-xl shadow-emerald-500/5 relative overflow-hidden">
             {/* Decorative background glow */}
-            <div className="absolute -top-24 -right-24 w-48 h-48 bg-orange-400/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
             
             <h3 className="text-2xl font-extrabold text-slate-800 mb-8 relative z-10">Send Us a Message</h3>
             
@@ -166,7 +166,7 @@ export default function InquirySection() {
               {/* Name */}
               <div className="space-y-2">
                 <Label htmlFor="name" className="text-slate-700 font-bold flex items-center gap-2">
-                  <User className="w-4 h-4 text-orange-500" />
+                  <User className="w-4 h-4 text-emerald-500" />
                   Full Name
                 </Label>
                 <Input
@@ -184,7 +184,7 @@ export default function InquirySection() {
               <div className="grid sm:grid-cols-2 gap-5">
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-slate-700 font-bold flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-orange-500" />
+                    <Mail className="w-4 h-4 text-emerald-500" />
                     Email Address
                   </Label>
                   <Input
@@ -199,7 +199,7 @@ export default function InquirySection() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone" className="text-slate-700 font-bold flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-orange-500" />
+                    <Phone className="w-4 h-4 text-emerald-500" />
                     Phone Number
                   </Label>
                   <Input
@@ -217,7 +217,7 @@ export default function InquirySection() {
               {/* Message */}
               <div className="space-y-2">
                 <Label htmlFor="message" className="text-slate-700 font-bold flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-orange-500" />
+                  <MessageSquare className="w-4 h-4 text-emerald-500" />
                   Your Message
                 </Label>
                 <Textarea
@@ -235,7 +235,7 @@ export default function InquirySection() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:from-orange-600 hover:to-amber-600 rounded-xl py-6 font-bold text-base shadow-md shadow-orange-500/20 transition-transform hover:-translate-y-0.5 border-0 mt-2"
+                className="w-full bg-gradient-to-r from-emerald-500 to-lime-500 text-white hover:from-emerald-600 hover:to-lime-600 rounded-xl py-6 font-bold text-base shadow-md shadow-emerald-500/20 transition-transform hover:-translate-y-0.5 border-0 mt-2"
               >
                 {isSubmitting ? (
                   <>

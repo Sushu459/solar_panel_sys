@@ -76,7 +76,7 @@ const BreathSection = () => {
       <div className="px-4 md:px-8">
         <div
           ref={containerRef}
-          className="relative w-full max-w-7xl mx-auto overflow-hidden shadow-2xl shadow-orange-900/10 border border-amber-100"
+          className="relative w-full max-w-7xl mx-auto overflow-hidden shadow-2xl shadow-emerald-900/10 border border-lime-100"
           style={{ willChange: 'transform, border-radius' }}
         >
           {/* Background Image (simulating video) */}
@@ -89,7 +89,7 @@ const BreathSection = () => {
 
             {/* Dark overlay for text contrast combined with a warm sunlit tint */}
             <div className="absolute inset-0 bg-slate-900/40" />
-            <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-orange-500/10 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-lime-500/20 to-emerald-500/10 mix-blend-overlay" />
 
             {/* Content */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
@@ -104,7 +104,7 @@ const BreathSection = () => {
               </h2>
               <p
                 ref={subtitleRef}
-                className="font-bold text-amber-400 text-sm md:text-base lg:text-lg uppercase tracking-[0.25em] mt-6 drop-shadow-md"
+                className="font-bold text-lime-400 text-sm md:text-base lg:text-lg uppercase tracking-[0.25em] mt-6 drop-shadow-md"
                 style={{ willChange: 'transform, opacity' }}
               >
                 {breathSectionConfig.subtitle}
@@ -124,7 +124,7 @@ const BreathSection = () => {
           <p className="text-lg md:text-xl font-medium text-slate-500 leading-relaxed">
             {breathSectionConfig.description}
           </p>
-          <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full mx-auto mt-8 opacity-50" />
+          <div className="w-16 h-1 bg-gradient-to-r from-emerald-400 to-lime-400 rounded-full mx-auto mt-8 opacity-50" />
         </div>
       )}
     </section>

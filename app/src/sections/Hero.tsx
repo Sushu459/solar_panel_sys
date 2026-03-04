@@ -113,7 +113,7 @@ const Hero = () => {
       </div>
 
       {/* Sunlit warm overlay to match the theme's vibe */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-orange-500/10 mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-lime-500/20 to-emerald-500/10 mix-blend-overlay pointer-events-none" />
 
       {/* Gradient overlay for depth (GSAP controlled) */}
       <div
@@ -142,7 +142,7 @@ const Hero = () => {
         {/* Subtitle */}
         <p
           ref={subtitleRef}
-          className="text-amber-400 text-sm sm:text-base md:text-lg uppercase tracking-[0.25em] font-bold mt-6 drop-shadow-md"
+          className="text-lime-400 text-sm sm:text-base md:text-lg uppercase tracking-[0.25em] font-bold mt-6 drop-shadow-md"
           style={{ willChange: 'transform, opacity' }}
         >
           {heroConfig.subtitle}

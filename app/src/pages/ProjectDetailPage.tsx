@@ -10,7 +10,7 @@ import type { Project } from '../types';
 
 export default function ProjectDetailPage() {
   const { id } = useParams<{ id: string }>();
-  const { getProjectById, projects } = useData();
+  const { getProjectById, projects, settings, fetchSettings } = useData();
   const [project, setProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -29,6 +29,10 @@ export default function ProjectDetailPage() {
     loadProject();
   }, [id, getProjectById]);
 
+  useEffect(() => {
+    fetchSettings();
+  }, [fetchSettings]);
+
   // Get related projects
   const relatedProjects = projects
     .filter((p) => p.id !== id && p.city === project?.city)
@@ -36,7 +40,7 @@ export default function ProjectDetailPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-white">
+      <div className="min-h-screen bg-gradient-to-br from-lime-50 via-white to-white">
         <Header />
         <main className="pt-32 pb-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,12 +64,12 @@ export default function ProjectDetailPage() {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-white">
+      <div className="min-h-screen bg-gradient-to-br from-lime-50 via-white to-white">
         <Header />
         <main className="pt-32 pb-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 bg-white rounded-[3rem] border border-amber-100 border-dashed shadow-sm">
-            <div className="w-24 h-24 rounded-full bg-orange-50 flex items-center justify-center mx-auto mb-6">
-              <MapPin className="w-10 h-10 text-orange-400" />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 bg-white rounded-[3rem] border border-lime-100 border-dashed shadow-sm">
+            <div className="w-24 h-24 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-6">
+              <MapPin className="w-10 h-10 text-emerald-400" />
             </div>
             <h1 className="text-3xl font-extrabold text-slate-800 mb-4 tracking-tight">Project Not Found</h1>
             <p className="text-slate-500 font-medium mb-8">The solar installation you are looking for does not exist or has been removed.</p>
@@ -97,11 +101,11 @@ export default function ProjectDetailPage() {
   const statusColors = {
     active: 'bg-emerald-100 text-emerald-700 border-emerald-200',
     completed: 'bg-blue-100 text-blue-700 border-blue-200',
-    pending: 'bg-amber-100 text-amber-700 border-amber-200',
+    pending: 'bg-lime-100 text-lime-700 border-lime-200',
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-white text-slate-800 selection:bg-amber-200">
+    <div className="min-h-screen bg-gradient-to-br from-lime-50 via-white to-white text-slate-800 selection:bg-lime-200">
       <Header />
 
       <main className="pt-32 pb-24">
@@ -109,7 +113,7 @@ export default function ProjectDetailPage() {
           {/* Back Button */}
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 text-slate-500 hover:text-orange-600 font-bold transition-colors mb-8 group"
+            className="inline-flex items-center gap-2 text-slate-500 hover:text-emerald-600 font-bold transition-colors mb-8 group"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
             Back to Projects
@@ -119,7 +123,7 @@ export default function ProjectDetailPage() {
           <div className="grid lg:grid-cols-2 gap-8 mb-12 items-start">
             
             {/* Constrained Image Gallery (Smaller and clearer) */}
-            <div className="relative rounded-[2rem] overflow-hidden bg-slate-100 border border-amber-100 shadow-xl shadow-orange-900/5 aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[500px]">
+            <div className="relative rounded-[2rem] overflow-hidden bg-slate-100 border border-lime-100 shadow-xl shadow-emerald-900/5 aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[500px]">
               <img
                 // Using 1200 width for a balance of high clarity without massive file size
                 src={getOptimizedImageUrl(project.images[currentImageIndex], { width: 1200, quality: 90 })}
@@ -140,14 +144,14 @@ export default function ProjectDetailPage() {
                 <>
                   <button
                     onClick={prevImage}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-slate-800 shadow-lg hover:bg-orange-500 hover:text-white transition-all duration-300 border border-slate-200"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-slate-800 shadow-lg hover:bg-emerald-500 hover:text-white transition-all duration-300 border border-slate-200"
                     aria-label="Previous image"
                   >
                     <ArrowLeft className="w-5 h-5" />
                   </button>
                   <button
                     onClick={nextImage}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-slate-800 shadow-lg hover:bg-orange-500 hover:text-white transition-all duration-300 border border-slate-200"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-slate-800 shadow-lg hover:bg-emerald-500 hover:text-white transition-all duration-300 border border-slate-200"
                     aria-label="Next image"
                   >
                     <ArrowRight className="w-5 h-5" />
@@ -160,7 +164,7 @@ export default function ProjectDetailPage() {
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
                         className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                          index === currentImageIndex ? 'bg-orange-400 w-6' : 'bg-white/60 hover:bg-white'
+                          index === currentImageIndex ? 'bg-emerald-400 w-6' : 'bg-white/60 hover:bg-white'
                         }`}
                         aria-label={`Go to image ${index + 1}`}
                       />
@@ -176,7 +180,7 @@ export default function ProjectDetailPage() {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-md bg-orange-50 text-orange-600 border border-orange-100"
+                    className="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-md bg-emerald-50 text-emerald-600 border border-emerald-100"
                   >
                     {tag}
                   </span>
@@ -189,24 +193,24 @@ export default function ProjectDetailPage() {
               
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-slate-500 font-medium mb-10">
                 <span className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm">
-                  <MapPin className="w-5 h-5 text-orange-500" />
+                  <MapPin className="w-5 h-5 text-emerald-500" />
                   {project.address}, {project.city}
                 </span>
               </div>
 
               {/* Highlight Stats Grid */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white rounded-3xl p-6 border border-amber-100 shadow-sm">
+                <div className="bg-white rounded-3xl p-6 border border-lime-100 shadow-sm">
                   <div className="flex items-center gap-3 mb-2 text-slate-500">
-                    <Zap className="w-5 h-5 text-amber-500" />
+                    <Zap className="w-5 h-5 text-lime-500" />
                     <span className="text-xs font-bold uppercase tracking-wider">Capacity</span>
                   </div>
                   <div className="text-3xl font-extrabold text-slate-800">{project.capacity_kw} kW</div>
                 </div>
                 
-                <div className="bg-white rounded-3xl p-6 border border-amber-100 shadow-sm">
+                <div className="bg-white rounded-3xl p-6 border border-lime-100 shadow-sm">
                   <div className="flex items-center gap-3 mb-2 text-slate-500">
-                    <Calendar className="w-5 h-5 text-orange-500" />
+                    <Calendar className="w-5 h-5 text-emerald-500" />
                     <span className="text-xs font-bold uppercase tracking-wider">Installed</span>
                   </div>
                   <div className="text-xl font-extrabold text-slate-800 mt-1">
@@ -227,9 +231,9 @@ export default function ProjectDetailPage() {
             <div className="lg:col-span-2 space-y-8">
               
               {/* Description */}
-              <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-amber-100 shadow-sm">
+              <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-lime-100 shadow-sm">
                 <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-                  <Sun className="w-6 h-6 text-orange-500" />
+                  <Sun className="w-6 h-6 text-emerald-500" />
                   About This Project
                 </h2>
                 <p className="text-slate-600 leading-relaxed whitespace-pre-line text-lg font-medium">
@@ -238,7 +242,7 @@ export default function ProjectDetailPage() {
               </div>
 
               {/* Key Highlights */}
-              <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-amber-100 shadow-sm">
+              <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-lime-100 shadow-sm">
                 <h2 className="text-2xl font-extrabold text-slate-900 mb-6">Key Highlights</h2>
                 <div className="grid sm:grid-cols-2 gap-y-4 gap-x-8">
                   {[
@@ -262,8 +266,8 @@ export default function ProjectDetailPage() {
             <div className="space-y-6">
               
               {/* Call to Action */}
-              <div className="bg-gradient-to-br from-orange-50 to-amber-100 rounded-[2rem] p-8 border border-orange-200 shadow-xl shadow-orange-900/5 relative overflow-hidden">
-                <div className="absolute -top-10 -right-10 w-32 h-32 bg-orange-400/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="bg-gradient-to-br from-emerald-50 to-lime-100 rounded-[2rem] p-8 border border-emerald-200 shadow-xl shadow-emerald-900/5 relative overflow-hidden">
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-emerald-400/20 rounded-full blur-3xl pointer-events-none" />
                 <h3 className="text-2xl font-extrabold text-slate-900 mb-3 relative z-10">
                   Ready for Solar?
                 </h3>
@@ -271,7 +275,7 @@ export default function ProjectDetailPage() {
                   Get a setup just like this one. Request a free consultation and quote today.
                 </p>
                 <Link to={`/contact?project=${project.id}`} className="block relative z-10">
-                  <Button className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:from-orange-600 hover:to-amber-600 py-6 text-lg font-bold rounded-xl shadow-md border-0 transition-transform hover:-translate-y-0.5">
+                  <Button className="w-full bg-gradient-to-r from-emerald-500 to-lime-500 text-white hover:from-emerald-600 hover:to-lime-600 py-6 text-lg font-bold rounded-xl shadow-md border-0 transition-transform hover:-translate-y-0.5">
                     <Mail className="w-5 h-5 mr-2" />
                     Get Free Quote
                   </Button>
@@ -279,26 +283,26 @@ export default function ProjectDetailPage() {
               </div>
 
               {/* Contact Info */}
-              <div className="bg-white rounded-[2rem] p-8 border border-amber-100 shadow-sm">
+              <div className="bg-white rounded-[2rem] p-8 border border-lime-100 shadow-sm">
                 <h3 className="text-xl font-extrabold text-slate-900 mb-6">Contact Us</h3>
                 <div className="space-y-4">
                   <a
-                    href="tel:+9118001234567"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 hover:bg-orange-50 hover:text-orange-600 text-slate-600 font-bold transition-colors group"
+                    href={`tel:${settings?.contact_phone || '+9118001234567'}`}
+                    className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-600 text-slate-600 font-bold transition-colors group"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center group-hover:bg-orange-100 transition-colors">
-                      <Phone className="w-5 h-5 text-orange-500" />
+                    <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
+                      <Phone className="w-5 h-5 text-emerald-500" />
                     </div>
-                    +91 1800 123 4567
+                    {settings?.contact_phone || '+91 1800 123 4567'}
                   </a>
                   <a
-                    href="mailto:info@solarsystems.in"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 hover:bg-orange-50 hover:text-orange-600 text-slate-600 font-bold transition-colors group"
+                    href={`mailto:${settings?.contact_email || 'info@solarsystems.in'}`}
+                    className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-600 text-slate-600 font-bold transition-colors group"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center group-hover:bg-orange-100 transition-colors">
-                      <Mail className="w-5 h-5 text-orange-500" />
+                    <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
+                      <Mail className="w-5 h-5 text-emerald-500" />
                     </div>
-                    info@solarsystems.in
+                    {settings?.contact_email || 'info@solarsystems.in'}
                   </a>
                 </div>
               </div>
@@ -309,14 +313,14 @@ export default function ProjectDetailPage() {
           {relatedProjects.length > 0 && (
             <div className="mt-24">
               <h2 className="text-3xl font-extrabold text-slate-900 mb-8 tracking-tight">
-                More in <span className="text-orange-500">{project.city}</span>
+                More in <span className="text-emerald-500">{project.city}</span>
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {relatedProjects.map((relatedProject) => (
                   <Link
                     key={relatedProject.id}
                     to={`/projects/${relatedProject.id}`}
-                    className="group block rounded-[2rem] overflow-hidden bg-white border border-amber-100 shadow-sm hover:shadow-2xl hover:shadow-orange-500/10 hover:border-orange-200 transition-all duration-500 hover:-translate-y-1.5"
+                    className="group block rounded-[2rem] overflow-hidden bg-white border border-lime-100 shadow-sm hover:shadow-2xl hover:shadow-emerald-500/10 hover:border-emerald-200 transition-all duration-500 hover:-translate-y-1.5"
                   >
                     <div className="relative h-48 overflow-hidden">
                       <img
@@ -328,16 +332,16 @@ export default function ProjectDetailPage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-extrabold text-slate-800 mb-3 group-hover:text-orange-600 transition-colors line-clamp-1">
+                      <h3 className="text-xl font-extrabold text-slate-800 mb-3 group-hover:text-emerald-600 transition-colors line-clamp-1">
                         {relatedProject.title}
                       </h3>
                       <div className="flex items-center justify-between text-sm font-bold pt-4 border-t border-slate-50">
                         <span className="flex items-center gap-1.5 text-slate-500">
-                          <MapPin className="w-4 h-4 text-orange-400" />
+                          <MapPin className="w-4 h-4 text-emerald-400" />
                           {relatedProject.city}
                         </span>
-                        <span className="flex items-center gap-1.5 text-orange-600">
-                          <Zap className="w-4 h-4 text-amber-500" />
+                        <span className="flex items-center gap-1.5 text-emerald-600">
+                          <Zap className="w-4 h-4 text-lime-500" />
                           {relatedProject.capacity_kw} kW
                         </span>
                       </div>

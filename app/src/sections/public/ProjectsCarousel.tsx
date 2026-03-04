@@ -12,7 +12,7 @@ function ProjectCard({ project }: { project: Project }) {
       to={`/projects/${project.id}`}
       className="flex-shrink-0 w-[280px] sm:w-[320px] lg:w-[380px] group block"
     >
-      <div className="flex flex-col h-full bg-white rounded-3xl overflow-hidden border border-amber-100 shadow-lg shadow-amber-900/5 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-500/10 group-hover:border-orange-200 group-hover:-translate-y-1.5">
+      <div className="flex flex-col h-full bg-white rounded-3xl overflow-hidden border border-lime-100 shadow-lg shadow-lime-900/5 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-emerald-500/10 group-hover:border-emerald-200 group-hover:-translate-y-1.5">
         
         {/* Smaller Image Top Section */}
         <div className="relative h-48 sm:h-56 overflow-hidden shrink-0">
@@ -33,7 +33,7 @@ function ProjectCard({ project }: { project: Project }) {
                 ? 'bg-emerald-100/90 text-emerald-700 border-emerald-200'
                 : project.status === 'completed'
                 ? 'bg-blue-100/90 text-blue-700 border-blue-200'
-                : 'bg-amber-100/90 text-amber-700 border-amber-200'
+                : 'bg-lime-100/90 text-lime-700 border-lime-200'
             }`}>
               {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
             </span>
@@ -48,7 +48,7 @@ function ProjectCard({ project }: { project: Project }) {
               {project.tags.slice(0, 2).map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-1 text-[10px] uppercase tracking-wider font-bold rounded-md bg-orange-50 text-orange-600 border border-orange-100"
+                  className="px-2.5 py-1 text-[10px] uppercase tracking-wider font-bold rounded-md bg-emerald-50 text-emerald-600 border border-emerald-100"
                 >
                   {tag}
                 </span>
@@ -57,24 +57,24 @@ function ProjectCard({ project }: { project: Project }) {
           )}
 
           {/* Title */}
-          <h3 className="text-lg sm:text-xl font-extrabold text-slate-800 mb-3 line-clamp-2 group-hover:text-orange-600 transition-colors">
+          <h3 className="text-lg sm:text-xl font-extrabold text-slate-800 mb-3 line-clamp-2 group-hover:text-emerald-600 transition-colors">
             {project.title}
           </h3>
 
           {/* Meta Information */}
           <div className="flex items-center gap-4 text-sm font-medium text-slate-500 mb-6 mt-auto pt-2">
             <span className="flex items-center gap-1.5 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">
-              <MapPin className="w-4 h-4 text-orange-500" />
+              <MapPin className="w-4 h-4 text-emerald-500" />
               {project.city}
             </span>
             <span className="flex items-center gap-1.5 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">
-              <Zap className="w-4 h-4 text-amber-500" />
+              <Zap className="w-4 h-4 text-lime-500" />
               {project.capacity_kw} kW
             </span>
           </div>
 
           {/* CTA */}
-          <div className="flex items-center gap-2 text-orange-600 text-sm font-bold opacity-80 group-hover:opacity-100 transition-all transform group-hover:translate-x-1">
+          <div className="flex items-center gap-2 text-emerald-600 text-sm font-bold opacity-80 group-hover:opacity-100 transition-all transform group-hover:translate-x-1">
             View Project Details
             <ArrowRight className="w-4 h-4" />
           </div>
@@ -148,13 +148,13 @@ export default function ProjectsCarousel() {
   }
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-amber-50/40 overflow-hidden">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-lime-50/40 overflow-hidden">
       {/* Section Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
           <div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
-              Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Projects</span>
+              Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-500">Projects</span>
             </h2>
             <p className="text-lg text-slate-600 font-medium max-w-xl">
               Explore our portfolio of successful solar installations across India, powering homes and businesses.
@@ -162,7 +162,7 @@ export default function ProjectsCarousel() {
           </div>
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 font-bold transition-all hover:translate-x-1"
+            className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-bold transition-all hover:translate-x-1"
           >
             View All Projects
             <ArrowRight className="w-5 h-5" />
@@ -212,9 +212,9 @@ export default function ProjectsCarousel() {
           ].map((stat, index) => (
             <div
               key={index}
-              className="text-center p-6 rounded-3xl bg-white border border-amber-100 shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="text-center p-6 rounded-3xl bg-white border border-lime-100 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
-              <div className="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 mb-1">{stat.value}</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-500 mb-1">{stat.value}</div>
               <div className="text-sm font-bold text-slate-500 uppercase tracking-wider">{stat.label}</div>
             </div>
           ))}

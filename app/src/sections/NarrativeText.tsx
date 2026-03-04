@@ -96,7 +96,7 @@ const NarrativeText = () => {
           className="flex justify-center mb-16"
           style={{ willChange: 'transform, opacity' }}
         >
-          <StarIcon className="w-6 h-6 md:w-8 md:h-8 text-orange-500 animate-spin-slow" />
+          <StarIcon className="w-6 h-6 md:w-8 md:h-8 text-emerald-500 animate-spin-slow" />
         </div>
 
         {/* Narrative Text */}
@@ -128,8 +128,8 @@ const NarrativeText = () => {
 
         {/* Bottom Decorative Element */}
         <div className="flex flex-col items-center justify-center mt-16 gap-4">
-          <div className="w-px h-12 bg-gradient-to-b from-orange-500/50 to-transparent" />
-          <StarIcon className="w-4 h-4 text-orange-400/40" />
+          <div className="w-px h-12 bg-gradient-to-b from-emerald-500/50 to-transparent" />
+          <StarIcon className="w-4 h-4 text-emerald-400/40" />
         </div>
       </div>
     </section>
